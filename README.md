@@ -15,7 +15,7 @@ Steps is a full stack web application designed to help users track their progres
 - **Frontend**: Built with Next.js, providing server-side rendering for faster page loads and better SEO.
 - **Backend**: Prisma ORM with PostgreSQL for efficient and scalable data storage and retrieval.
 - **Authentication**: NextAuth.js for secure user authentication with support for multiple providers.
-- **Styling**: CSS or SCSS for styling components, with flexibility for customization.
+- **Styling**: CSS or TailwindCSS for styling components, with flexibility for customization.
 - **Deployment**: Easily deployable to platforms like Vercel or Heroku for seamless deployment and scaling.
 
 ## Getting Started
