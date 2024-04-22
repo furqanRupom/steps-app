@@ -57,7 +57,7 @@ const Values: React.FunctionComponent<IValuesProps> = (props) => {
                             <Image width={40} src={value.iconsPath} alt='icon' />
                             <h3>{value.heading}</h3>
                         </div>
-                        <p className=' leading-relaxed'>{value.description}</p>
+                        <p className=' leading-relaxed text-gray-400'>{value.description}</p>
                     </article>)
                 }
 

@@ -1,35 +1,47 @@
+"use client"
+
 import Link from 'next/link';
-import * as React from 'react';
+import { useState } from 'react';
 
-interface INavBarPageProps {
-}
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Navbar: React.FunctionComponent<INavBarPageProps> = (props) => {
-  return <section>
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-    <nav className='flex justify-between items-center px-8 py-3 fixed w-full top-0 z-50 bg-opacity-25 backdrop-blur-2xl bg-gray-900'>
-      <h3 className='text-red-400  text-3xl font-bold'>Step<span className='text-white'>s</span></h3>
+  return (
+    <nav className='flex justify-between items-center px-8 py-3 fixed w-full top-0 z-50  bg-opacity-70 lg:bg-opacity-25 backdrop-blur-2xl bg-slate-950'>
+      <h3 className='text-red-400 text-3xl font-bold'>Step<span className='text-white'>s</span></h3>
 
-      <ul className='flex space-x-5 text-white items-center text-lg font-normal'>
-        <li className='hover:text-red-400 duration-500'>
-          <Link href="/">home</Link>
+      <div className="lg:hidden">
+        <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <ul className={`flex flex-col lg:flex-row px-12 py-5 lg:py-0 lg:px-0 space-y-3 lg:space-y-0 lg:space-x-5 text-white items-center text-lg font-normal ${isOpen ? '-translate-y-0 duration-500 lg:duration-0 lg:-translate-y-0' : '-translate-y-[1000px] duration-1000 lg:duration-0 lg:-translate-y-0'} absolute top-14 lg:top-0 left-0 lg:relative w-full lg:w-auto bg-slate-950 bg-opacity-70 backdrop-blur-md lg:bg-transparent`}>
+        <li className='hover:text-red-400 duration-500 w-fit'>
+          <Link href="/">Home</Link>
         </li>
-        <li className='hover:text-red-400 duration-500'>
-          <Link href="/about">about</Link>
+        <li className='hover:text-red-400 duration-500 w-fit'>
+          <Link href="/about">About</Link>
         </li>
-        <li className='hover:text-red-400 duration-500'>
-          <Link href="/news">news</Link>
+        <li className='hover:text-red-400 duration-500 w-fit'>
+          <Link href="/news">News</Link>
         </li>
-        <li className='hover:text-red-400 duration-500'>
-          <Link href="/contact">contact</Link>
+        <li className='hover:text-red-400 duration-500 w-fit'>
+          <Link href="/contact">Contact</Link>
         </li>
-
-        <li className='border uppercase hover:text-red-400 hover:border-transparent duration-500 cursor-pointer border-red-400 py-1 px-7'>
+        <li className='border uppercase w-fit hover:text-red-400 hover:border-transparent duration-500 cursor-pointer border-red-400 py-1 px-7'>
           <Link href="/login">Login</Link>
         </li>
       </ul>
+
     </nav>
-  </section>;
+  );
 };
 
 export default Navbar;
