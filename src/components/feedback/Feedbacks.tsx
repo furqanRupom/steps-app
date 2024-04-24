@@ -28,7 +28,7 @@ const Feedbacks: React.FunctionComponent<IFeedbacksProps> = (props) => {
       <div className="border-2-2 absolute border-opacity-20 border-gray-700 h-full border lg:left-[50%]"></div>
 
       {/* Feedback Cards */}
-      {feedbacks.map((feedback, index) => (
+      { Feedbacks.length == 0 ? <h3 className='text-red-400 text-center text-3xl py-3'>We Have no Feedback </h3> : feedbacks?.map((feedback, index) => (
         <div key={feedback.id} className={`mb-3 flex justify-between items-center w-full h-full ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
           {/* Empty div for spacing */}
           <div className="lg:w-5/12 hidden lg:block"></div>
