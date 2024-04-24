@@ -5,7 +5,7 @@ interface IFeedbackFormProps { }
 
 const FeedbackForm: React.FunctionComponent<IFeedbackFormProps> = (props) => {
     return (
-        <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20'>
+        <section className=''>
             <div className=' max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center gap-20'>
 
                 <div className='hidden lg:block'>
