@@ -51,7 +51,7 @@ const Values: React.FunctionComponent<IValuesProps> = (props) => {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 text-white gap-10 bg-gray-500 bg-opacity-5 backdrop-blur-lg p-5'>
                 {
-                    values.map((value) => <article>
+                    values.map((value) => <article key={value.heading}>
                         <div className='flex items-center space-x-2 pb-5'>
 
                             <Image width={40} src={value.iconsPath} alt='icon' />
