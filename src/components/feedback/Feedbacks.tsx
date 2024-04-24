@@ -41,7 +41,7 @@ const Feedbacks: React.FunctionComponent<IFeedbacksProps> = (props) => {
             
 
             <blockquote className='italic'>
-            <p className="text-xs lg:text-medium leading-snug tracking-wide ">"{feedback.feedback}"</p>
+              <p className="text-xs lg:text-medium leading-snug tracking-wide ">&quot;{feedback.feedback}&quot;</p>
             </blockquote>
             <h3 className=" font-semibold text-sm pt-3 text-right">- {feedback.name}</h3>
           </div>
