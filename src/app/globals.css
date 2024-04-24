@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* tailwind.css */
+
+.right-timeline .order-1 {
+  order: 1;
+}
+
+.right-timeline .order-2 {
+  order: 2;
+}
+
+.left-timeline .order-1 {
+  order: 2;
+}
+
+.left-timeline .order-2 {
+  order: 1;
+}
