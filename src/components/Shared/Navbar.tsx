@@ -35,6 +35,9 @@ const Navbar = () => {
         <li className='hover:text-red-400 duration-500 w-fit'>
           <Link href="/contact">Contact</Link>
         </li>
+        <li className='hover:text-red-400 duration-500 w-fit'>
+          <Link href="/feedback">Feedback</Link>
+        </li>
         <li className='border uppercase w-fit hover:text-red-400 hover:border-transparent duration-500 cursor-pointer border-red-400 py-1 px-7'>
           <Link href="/login">Login</Link>
         </li>
