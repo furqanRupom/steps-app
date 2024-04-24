@@ -8,7 +8,7 @@ const Achievement: React.FunctionComponent<IAchievementProps> = (props) => {
         <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl font-semibold text-white mb-6">Our Achievements</h2>
             <p className="text-lg text-gray-400 mb-8">
-                At Steps, we're proud of the impact our platform has had on helping users reach their goals and improve their productivity.
+                At Steps, we are proud of the impact our platform has had on helping users reach their goals and improve their productivity.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
                 <div className="bg-gray-500 bg-opacity-5 backdrop-blur-lg rounded-lg shadow-md p-6">
@@ -21,7 +21,7 @@ const Achievement: React.FunctionComponent<IAchievementProps> = (props) => {
                 </div>
                 <div className="bg-gray-500 bg-opacity-5 backdrop-blur-lg rounded-lg shadow-md p-6">
                     <h3 className="text-xl font-semibold mb-4 text-white">Positive User Feedback</h3>
-                    <p className="text-gray-400">We've received overwhelmingly positive feedback from our users, with an average satisfaction rating of 4.8 out of 5. Users appreciate the intuitive interface, seamless experience, and the tangible results they've achieved with Steps.</p>
+                    <p className="text-gray-400">We have received overwhelmingly positive feedback from our users, with an average satisfaction rating of 4.8 out of 5. Users appreciate the intuitive interface, seamless experience, and the tangible results they have achieved with Steps.</p>
                 </div>
             </div>
         </div>

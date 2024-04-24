@@ -32,7 +32,7 @@ const FAQAccordian: React.FunctionComponent<IFACAccordianProps> = (props) => {
             <div className='max-w-7xl mx-auto'>
                 <h2 className="text-3xl text-white font-semibold  mb-6">Frequently Asked Questions</h2>
                 <p className='text-gray-500 leading-relaxed pb-12'>
-                    Have questions? We've got answers! Check out our frequently asked questions to learn more about using Steps.
+                    Have questions? We have got answers! Check out our frequently asked questions to learn more about using Steps.
                 </p>
                 <Accordion  >
                    {

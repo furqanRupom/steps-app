@@ -22,7 +22,7 @@ const Journey: React.FunctionComponent<IJourneyProps> = (props) => {
                     Elevate Your Journey with Steps
                 </h1>
                 <p>
-                    Elevate your journey with Steps and transform the way you approach your goals. Whether you're striving for personal growth or professional success, Steps provides the tools and support you need to stay organized, motivated, and on track. With its seamless and intuitive features, Steps empowers you to turn your aspirations into achievements, one step at a time.
+                    Elevate your journey with Steps and transform the way you approach your goals. Whether you are striving for personal growth or professional success, Steps provides the tools and support you need to stay organized, motivated, and on track. With its seamless and intuitive features, Steps empowers you to turn your aspirations into achievements, one step at a time.
 
 
                 </p>
