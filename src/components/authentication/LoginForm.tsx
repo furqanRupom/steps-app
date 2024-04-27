@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ILoginFormProps {
 }
@@ -99,12 +100,12 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                             >
                                 Forgot password?
                             </a>
-                            <a
-                                href="#"
-                                className="text-sm text-gray-400 bg-gray-900 hover:underline focus:outline-none focus:underline"
+                            <Link 
+                                href="/register"
+                                className="text-sm text-gray-400  hover:underline focus:outline-none focus:underline"
                             >
                                 New to Steps? Register
-                            </a>
+                            </Link>
                         </div>
                         <button
                             type="submit"
