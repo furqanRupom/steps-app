@@ -1,9 +1,8 @@
 "use client"
-
-import { NavlinksGenerator } from '@/utils/NavLinksGenerator';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useState } from 'react';
+import { NavlinksGenerator } from '@/utils/NavLinksGenerator';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

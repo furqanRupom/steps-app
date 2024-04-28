@@ -1,89 +1,43 @@
 "use client"
-
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FiMenu, FiHome, FiUsers, FiSettings, FiLogOut, FiBell, FiUser, FiBarChart, FiShoppingBag, FiMusic } from 'react-icons/fi';
-import { BsFillFolderSymlinkFill } from 'react-icons/bs';
+import { DashboardGenerator } from '@/utils/NavLinksGenerator';
+import { UserRole } from '@prisma/client';
+import { Session } from 'next-auth';
+interface ISidebarProps {
+  session:Session | null
 
-const Sidebar = () => {
+}
+
+const Sidebar : React.FunctionComponent<ISidebarProps> = ({session}) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const handleToggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    const sidebarLinks = DashboardGenerator(UserRole.ADMIN);
+
     return (
         <div className={`flex flex-row bg-gray-900 ${isSidebarOpen ? 'translate-x-0' : 'translate-x-0'} transition-transform duration-300 ease-in-out h-full`}>
             <div className="flex flex-col w-56 bg-gray-900 rounded-r-3xl overflow-hidden">
-                <div className="flex items-center justify-center h-20 shadow-md">
-                    <h1 className="text-3xl  text-red-400">Steps</h1>
+                <div className="">
+                  <Link href="/">
+                        <h1 className="text-3xl px-4 py-3 text-red-400">Step<span className='text-white'>s</span></h1>
+                  </Link>
                 </div>
                 <ul className="flex flex-col py-4">
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiHome /></span>
-                                <span className="text-sm font-medium">Dashboard</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiMusic /></span>
-                                <span className="text-sm font-medium">Music</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><BsFillFolderSymlinkFill /></span>
-                                <span className="text-sm font-medium">Drink</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiShoppingBag /></span>
-                                <span className="text-sm font-medium">Shopping</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiBarChart /></span>
-                                <span className="text-sm font-medium">Chat</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiUser /></span>
-                                <span className="text-sm font-medium">Profile</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiBell /></span>
-                                <span className="text-sm font-medium">Notifications</span>
-                                <span className="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
-                            </p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/" passHref>
-                            <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FiLogOut /></span>
-                                <span className="text-sm font-medium">Logout</span>
-                            </p>
-                        </Link>
-                    </li>
+                    {
+                        sidebarLinks?.map(({ path, name, icon }) => <li key={name}>
+                            <Link href={path} passHref>
+                                <p className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-red-400">
+                                    <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">{icon}</span>
+                                    <span className="text-sm font-medium">{name}</span>
+                                </p>
+                            </Link>
+                        </li>)
+                    }
+
                 </ul>
             </div>
         </div>

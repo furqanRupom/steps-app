@@ -1,5 +1,12 @@
 /* navlinks generator */
 
+import { UserRole } from "@prisma/client";
+import { FaHistory, FaTasks } from "react-icons/fa";
+import { FcSerialTasks } from "react-icons/fc";
+import { FiBarChart, FiUser, FiUsers } from "react-icons/fi";
+import { GrUserAdmin } from "react-icons/gr";
+import { MdReport } from "react-icons/md";
+
 
 
 
@@ -7,54 +14,69 @@
 
 /* dashboard generate  */
 
-export const DashboardGenerator = (role: string) => {
+export const DashboardGenerator = (role: UserRole) => {
     let Navlinks = [];
     switch (role) {
-        case 'user':
+        case UserRole.USER:
             Navlinks = [
                 {
                     path: "/user",
-                    name: "user dashboard"
+                    name: "user dashboard",
+                    icon : <FiUser />
                 },
                 {
                     path: "/goals",
-                    name: "My Goals"
+                    name: "My Goals",
+                    icon:<FiBarChart />
                 },
                 {
                     path: "/tasks",
-                    name: "My Tasks"
+                    name: "My Tasks",
+                    icon: <FcSerialTasks />
                 }
                 ,
                 {
                     path: "/history",
-                    name: "My taks and goals History"
+                    name: "My taks and goals History",
+                    icon:<FaHistory />
                 }
             ]
 
             break;
-        case 'admin':
+        case UserRole.ADMIN:
             Navlinks = [
                 {
-                    path: "/admin",
-                    name: "admin dashboard"
+                    path: "/dashboard/admin",
+                    name: "Admin dashboard",
+                    icon: <GrUserAdmin />
                 },
                 {
-                    path: "/users",
-                    name: "All Users"
+                    path: "/dashboard/admin/users",
+                    name: "Manage users",
+                    icon: <FiUsers />
                 },
                 {
-                    path: "/golas",
-                    name: "All Goals"
+                    path: "/dashboard/admin/goals",
+                    name: "Manage goals",
+                    icon:<FiBarChart />
                 }
                 ,
                 {
-                    path: "/tasks",
-                    name: "All Tasks"
+                    path: "/dashboard/admin/tasks",
+                    name: "Manage Tasks",
+                    icon:<FaTasks />
                 }
                 ,
                 {
-                    path: "/history",
-                    name: "My taks and goals History"
+                    path: "/dashboard/admin/history",
+                    name: "Tasks and goals history",
+                    icon:<FaHistory />
+                }
+                ,
+                {
+                    path: "/reports",
+                    name: "Reports ",
+                    icon:<MdReport />
                 }
             ]
             return Navlinks;

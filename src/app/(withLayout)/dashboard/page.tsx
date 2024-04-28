@@ -1,13 +1,12 @@
-import AdminDashboard from '@/components/dashboard/Home/AdminHome';
 import * as React from 'react';
 
-interface IDashboardProps {
+interface IDashboardPageProps {
 }
 
-const Dashboard: React.FunctionComponent<IDashboardProps> = (props) => {
+const DashboardPage: React.FunctionComponent<IDashboardPageProps> = (props) => {
   return <>
-  <AdminDashboard />
+  our dashboard page
   </>;
 };
 
-export default Dashboard;
+export default DashboardPage;

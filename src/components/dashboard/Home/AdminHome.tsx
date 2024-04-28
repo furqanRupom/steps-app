@@ -1,3 +1,5 @@
+import { options } from '@/app/api/auth/[...nextauth]/options';
+import { getServerSession } from 'next-auth';
 import React from 'react';
 
 interface User {
@@ -21,8 +23,12 @@ interface Task {
     dueDate: string;
 }
 
-const AdminDashboard: React.FC = () => {
+const AdminDashboard: React.FC = async() => {
     // Dummy users with their goals and tasks
+
+    const loggedUser = await getServerSession(options);
+    console.log(loggedUser);
+
     const users: User[] = [
         {
             id: 1,
