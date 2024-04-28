@@ -1,6 +1,9 @@
+"use client"
+
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 interface ILoginFormProps {
 }
@@ -17,7 +20,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                 <div className="max-w-lg mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg ">
                     <h1 className="text-3xl text-center mb-8 text-white">Welcome to <span className='text-red-400'>Steps</span></h1>
                     <div className="flex justify-center space-x-4 mb-6">
-                        <button className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
+                        <button  className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                             <svg
                                 className="w-6 h-6 mr-2"
                                 viewBox="0 0 24 24"
@@ -42,7 +45,9 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                             </svg>
                             Login with Google
                         </button>
-                        <button className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
+                        <button onClick={() => signIn("github",{
+                            callbackUrl:"http://localhost:3000/dashboard"
+                        })} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                             <svg
                                 className="w-6 h-6 mr-2"
                                 viewBox="0 0 24 24"
