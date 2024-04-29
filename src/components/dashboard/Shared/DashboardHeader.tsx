@@ -74,7 +74,7 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
                                 </div>
                             </div>
                             <button onClick={() => signOut({
-                                callbackUrl:"http://localhost:3000/login"
+                                callbackUrl:"https://steps-app-rouge.vercel.app/login"
                             })} className="block w-full text-left mt-4 py-2 px-4 bg-red-400 hover:bg-red-600 transition-colors duration-300" >
                                 <div className="flex items-center space-x-2">
                                     <FiLogOut className="h-6 w-6" />
