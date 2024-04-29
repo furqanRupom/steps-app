@@ -31,6 +31,7 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
 
       if(socialAuthenticateUser.status == 'authenticated'){
           authUser = data?.data;
+          refetch();
       }
     
 
