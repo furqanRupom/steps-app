@@ -58,7 +58,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                         <h1 className="text-3xl text-center mb-8 text-white">Welcome to <span className='text-red-400'>Steps</span></h1>
                         <div className="flex justify-center space-x-4 mb-6">
                             <button onClick={() => signIn("google", {
-                                callbackUrl: "http://localhost:3000/dashboard"
+                                callbackUrl: "https://steps-app-rouge.vercel.app/dashboard"
                             })} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                                 <svg
                                     className="w-6 h-6 mr-2"
@@ -85,7 +85,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 Login with Google
                             </button>
                             <button onClick={() => signIn("github", {
-                                callbackUrl: "http://localhost:3000/dashboard"
+                                callbackUrl: "https://steps-app-rouge.vercel.app/dashboard"
                             })} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                                 <svg
                                     className="w-6 h-6 mr-2"

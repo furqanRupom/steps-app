@@ -65,4 +65,5 @@ export const options :NextAuthOptions = {
         signOut:"/login"
     },
     secret:process.env.NEXTAUTH_SECRET as string,
+  
 }
