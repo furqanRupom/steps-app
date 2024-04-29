@@ -1,26 +1,38 @@
 "use client"
+import LoadingPage from '@/app/loading';
+import { useGetUser } from '@/hooks/useGetUser';
 import { Session } from 'next-auth';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { BiNotification } from 'react-icons/bi';
 import { FiUser, FiLogOut, FiMessageCircle } from 'react-icons/fi';
 
 interface IDashboardHeaderProps {
-  session: Session | null
+
     
 }
 
 
 
 
-const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = ({session}) => {
+
+
+const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
-    const user = session?.user;
-    console.log(session);
-    console.log(user);
+     const socialAuthenticateUser = useSession();
+     const {data,refetch,isLoading} = useGetUser();
+     let authUser;
+    
+      const socialUser = socialAuthenticateUser?.data?.user;
+
+   
 
 
+      if(socialAuthenticateUser.status == 'authenticated'){
+          authUser = data?.data;
+      }
+    
 
 
     const togglePopup = () => {
@@ -46,7 +58,7 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = ({sessio
                         
                      
                     >
-                        <Image className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500 ring ring-gray-800" width={20} height={20} src={user?.image as string} alt='user image' />
+                        <Image className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500 ring ring-gray-800" width={20} height={20} src={socialUser?.image as string || authUser?.image ||"https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
                         
                         
                     </span>
@@ -57,8 +69,8 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = ({sessio
                             <div className="flex items-center space-x-4">
                          
                                 <div>
-                                    <p className="text-gray-300 font-semibold">{user?.name}</p>
-                                    <p className="text-gray-300">{user?.email}</p>
+                                    <p className="text-gray-300 font-semibold">{socialUser?.name || authUser?.name}</p>
+                                    <p className="text-gray-300">{socialUser?.email || authUser?.email}</p>
                                 </div>
                             </div>
                             <button onClick={() => signOut({

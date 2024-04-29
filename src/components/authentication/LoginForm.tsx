@@ -3,11 +3,48 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
+import { useForm } from "react-hook-form";
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 interface ILoginFormProps {
 }
 
+
+interface ILoginData {
+    email: string;
+    password: string;
+}
+
 const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
+
+    /* handle login form  */
+    const { register, handleSubmit } = useForm<ILoginData>();
+    const router = useRouter();
+
+    const handleLoginSubmit = async (data: ILoginData) => {
+        const toastId = toast.loading("Login on process...");
+        try {
+            const res = await signIn("credentials", {
+                email: data.email,
+                password: data.password,
+                redirect:false
+            })
+            console.log(res);
+
+            if (res?.ok) {
+                toast.success("user login successfully !", { id: toastId });
+                router.push("/dashboard");
+            }
+
+
+        } catch (error: any) {
+            toast.error(error.message, { id: toastId })
+            console.log(error)
+            // router.push("/login")
+
+        }
+    }
     return <>
         <section className='min-h-screen   w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20 '>
 
@@ -20,8 +57,8 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                     <div className="max-w-lg mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg ">
                         <h1 className="text-3xl text-center mb-8 text-white">Welcome to <span className='text-red-400'>Steps</span></h1>
                         <div className="flex justify-center space-x-4 mb-6">
-                            <button onClick={() => signIn("google",{
-                                callbackUrl:"http://localhost:3000/dashboard"
+                            <button onClick={() => signIn("google", {
+                                callbackUrl: "http://localhost:3000/dashboard"
                             })} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                                 <svg
                                     className="w-6 h-6 mr-2"
@@ -47,7 +84,9 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 </svg>
                                 Login with Google
                             </button>
-                            <button onClick={() => signIn("github")} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
+                            <button onClick={() => signIn("github", {
+                                callbackUrl: "http://localhost:3000/dashboard"
+                            })} className="flex items-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-600">
                                 <svg
                                     className="w-6 h-6 mr-2"
                                     viewBox="0 0 24 24"
@@ -67,7 +106,9 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 Or
                             </div>
                         </div>
-                        <form>
+
+
+                        <form onSubmit={handleSubmit(handleLoginSubmit)}>
                             <div className="mb-4">
                                 <label
                                     htmlFor="email"
@@ -78,7 +119,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 <input
                                     type="email"
                                     id="email"
-                                    name="email"
+                                    {...register("email")}
                                     className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                     placeholder="Enter your email"
                                 />
@@ -93,7 +134,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 <input
                                     type="password"
                                     id="password"
-                                    name="password"
+                                    {...register("password")}
                                     className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                     placeholder="Enter your password"
                                 />

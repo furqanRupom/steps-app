@@ -1,11 +1,45 @@
+"use client"
+import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import {useRouter} from "next/navigation"
+import registerSchemaValidation from '@/lib/validation/auth/register.validation';
+
 
 interface IRegisterFormProps {
 }
 
+interface IRegisterData {
+    name:string;
+    email:string;
+    password:string;
+    contactNumber:string;
+    profilePhoto:string;
+    address:string;
+}
+
 const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
+  const {register,handleSubmit} = useForm<IRegisterData>()
+  const router = useRouter();
+
+  const handleRegisterSubmit = async (data:IRegisterData) => {
+    const toastId = toast.loading("Registration on process...")
+   try {
+
+    const res = await axios.post('/api/register',data);
+    if(res.data.success){
+        toast.success("user Registration successfully !",{id:toastId});
+        router.push("/dashboard");
+    }
+   } catch (error : any) {
+       toast.error(error.message, { id: toastId });
+       router.push("/login");
+   }
+  };
+
   return <section>
       <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20 '>
           <div className='max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-20'>
@@ -13,7 +47,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
               <div>
                   <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg">
                       <h1 className="text-3xl text-center mb-8 text-white">Register for <span className='text-red-400'>Steps</span></h1>
-                      <form>
+                      <form onSubmit={handleSubmit(handleRegisterSubmit)}>
                         <div className='grid grid-cols-2 gap-3 w-full'>
 
                           <div className="mb-4">
@@ -23,7 +57,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               <input
                                   type="text"
                                   id="name"
-                                  name="name"
+                                  {...register("name")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter your name"
                                   required
@@ -36,7 +70,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               <input
                                   type="email"
                                   id="email"
-                                  name="email"
+                                  {...register("email")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter your email"
                                   required
@@ -50,7 +84,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               <input
                                   type="text"
                                   id="contactNumber"
-                                  name="contactNumber"
+                                  {...register("contactNumber")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter your contact number"
                               />
@@ -62,7 +96,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               <input
                                   type="text"
                                   id="profilePhoto"
-                                  name="profilePhoto"
+                                  {...register("profilePhoto")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter URL of your profile photo"
                               />
@@ -74,7 +108,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               <input
                                   type="password"
                                   id="password"
-                                  name="password"
+                                  {...register("password")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter your password"
                                   required
@@ -86,7 +120,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                               </label>
                               <textarea
                                   id="address"
-                                  name="address"
+                                  {...register("address")}
                                   className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                   placeholder="Enter your address"
                               ></textarea>

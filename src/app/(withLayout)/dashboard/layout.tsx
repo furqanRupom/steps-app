@@ -6,27 +6,30 @@ import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ children }) => {
-    const session = await getServerSession(options)
+    const session = await getServerSession(options);
+    
     return (
-      <>
- 
+    <NextAuthProvider>
+            <>
+
                 <div className="grid grid-cols-12 min-h-screen">
                     {/* Sidebar */}
                     <div className="col-span-2">
-                        <Sidebar session={session} />
+                        <Sidebar />
                     </div>
                     {/* Main Content */}
                     <div className="col-span-10">
                         <div >
                             {/* Header */}
-                        <DashboardHeader session={session} />
+                            <DashboardHeader  />
                             {/* Children Content */}
                             <main>{children}</main>
                         </div>
                     </div>
                 </div>
-      
-      </>
+
+            </>
+    </NextAuthProvider>
     );
 };
 

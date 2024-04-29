@@ -3,6 +3,7 @@ import { Inter,Sora,Blaka_Hollow,Pacifico,Exo,Urbanist } from "next/font/google"
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
 import Footer from "@/components/Shared/Footer";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,16 @@ export default function RootLayout({
       <body className={urbanist.className}>
         <Navbar />
         {children}
+        <Toaster position="top-center" toastOptions={{
+          style:{
+            border:'1px solid transparent'
+          },
+          classNames:{
+            toast:'bg-gray-900',
+            title:'text-red-400',
+            icon:'text-white',
+          }
+        }} />
         <Footer />
       </body>
     </html>

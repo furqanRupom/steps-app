@@ -5,11 +5,11 @@ import { DashboardGenerator } from '@/utils/NavLinksGenerator';
 import { UserRole } from '@prisma/client';
 import { Session } from 'next-auth';
 interface ISidebarProps {
-  session:Session | null
+
 
 }
 
-const Sidebar : React.FunctionComponent<ISidebarProps> = ({session}) => {
+const Sidebar : React.FunctionComponent<ISidebarProps> = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const handleToggleSidebar = () => {
