@@ -1,25 +1,20 @@
 "use client"
-import React, { useState } from 'react';
 import Link from 'next/link';
 import { DashboardGenerator } from '@/utils/NavLinksGenerator';
+import { useSession } from 'next-auth/react';
 import { UserRole } from '@prisma/client';
-import { Session } from 'next-auth';
 interface ISidebarProps {
 
 
 }
 
 const Sidebar : React.FunctionComponent<ISidebarProps> = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const handleToggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-
-    const sidebarLinks = DashboardGenerator(UserRole.ADMIN);
+    const {data} = useSession();
+    const user = data?.user
+    const sidebarLinks = DashboardGenerator(user?.role as UserRole || "USER");
 
     return (
-        <div className={`flex flex-row bg-gray-900 ${isSidebarOpen ? 'translate-x-0' : 'translate-x-0'} transition-transform duration-300 ease-in-out h-full`}>
+        <div className={`flex flex-row bg-gray-900 'translate-x-0' : 'translate-x-0' transition-transform duration-300 ease-in-out h-full`}>
             <div className="flex flex-col w-56 bg-gray-900 rounded-r-3xl overflow-hidden">
                 <div className="">
                   <Link href="/">

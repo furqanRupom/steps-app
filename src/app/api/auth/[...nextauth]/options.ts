@@ -4,7 +4,7 @@ import CredentialsProviders from "next-auth/providers/credentials";
 import GithubProviders from "next-auth/providers/github";
 import GoogleProviders from "next-auth/providers/google";
 import bcrypt from "bcrypt"
-import { User } from "@prisma/client";
+import { User, UserRole } from "@prisma/client";
 
 
 
@@ -55,13 +55,53 @@ export const options :NextAuthOptions = {
                 }
             },
 
-        })
+
+        }),
+    
     ],
+    callbacks:{
+        async session({token,session}){
+            console.log({token,session})
+            if(token){
+                session.user.id = token.id;
+                session.user.name = token.name;
+                session.user.email = token.email;
+                session.user.role = token.role;
+                session.user.image = token.picture
+            }
+
+         
+            return session;
+        },
+        async jwt({token,user}){
+            console.log({token,user})
+            const dbUser = await prisma.user.findUnique({
+                where:{
+                    email:token.email as string
+                },
+                include:{
+                    member:true
+                }
+            });
+
+            if(!dbUser){
+               throw new Error("user not found");
+            }
+
+            return {
+                id:dbUser.id,
+                name:dbUser?.member?.name,
+                email:dbUser.email,
+                picture:dbUser.member?.profilePhoto,
+                role:dbUser.role
+            }
+        }
+    },
     session:{
         strategy:"jwt"
     },
     pages:{
-        signIn:"/dashboard",
+        signIn:"/login",
         signOut:"/login"
     },
     secret:process.env.NEXTAUTH_SECRET as string,

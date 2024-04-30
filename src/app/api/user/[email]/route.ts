@@ -7,7 +7,6 @@ type Params = {
 
 export const GET = async (req: NextRequest,context:{params:Params}) => {
     const email = context.params.email;
-    console.log(email);
     try {
         const findUser = await prisma.user.findUniqueOrThrow({
             where:{
@@ -21,6 +20,7 @@ export const GET = async (req: NextRequest,context:{params:Params}) => {
         const responseData = {
             name:findUser.member?.name,
             email:findUser.email,
+            role:findUser.role,
             image:findUser.member?.profilePhoto
         };
        

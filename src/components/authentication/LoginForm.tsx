@@ -28,12 +28,13 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
             const res = await signIn("credentials", {
                 email: data.email,
                 password: data.password,
-                redirect:false
+                redirect: false
             })
-            console.log(res);
+
 
             if (res?.ok) {
                 toast.success("user login successfully !", { id: toastId });
+                localStorage.setItem("email", data.email);
                 router.push("/dashboard");
             }
 

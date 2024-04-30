@@ -32,7 +32,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
     const res = await axios.post('/api/register',data);
     if(res.data.success){
         toast.success("user Registration successfully !",{id:toastId});
-        router.push("/dashboard");
+        router.push("/login");
     }
    } catch (error : any) {
        toast.error(error.message, { id: toastId });
