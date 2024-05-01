@@ -21,7 +21,7 @@ export const DashboardGenerator = (role: UserRole) => {
         case UserRole.USER:
             Navlinks = [
                 {
-                    path: "/user",
+                    path: "/dashboard",
                     name: "user dashboard",
                     icon: <FiUser />
                 },
@@ -33,7 +33,7 @@ export const DashboardGenerator = (role: UserRole) => {
                 {
                     path: "/tasks",
                     name: "My Tasks",
-                    icon: <FcSerialTasks />
+                    icon: <FaTasks/>
                 },
                 {
                     path: "/history",
@@ -45,7 +45,7 @@ export const DashboardGenerator = (role: UserRole) => {
         case UserRole.ADMIN:
             Navlinks = [
                 {
-                    path: "/dashboard/admin",
+                    path: "/dashboard",
                     name: "Admin dashboard",
                     icon: <GrUserAdmin />
                 },
@@ -96,7 +96,7 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                     name: "Home"
                 },
                 {
-                    path: "/dashboard/user",
+                    path: "/dashboard",
                     name: "Dashboard"
                 },
                 {
@@ -120,7 +120,7 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                     name: "Home"
                 },
                 {
-                    path: "/dashboard/admin",
+                    path: "/dashboard",
                     name: "Dashboard"
                 },
                 {
@@ -144,7 +144,7 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                     name: "Home"
                 },
                 {
-                    path: "/dashboard/superAdmin",
+                    path: "/dashboard",
                     name: "dashboard"
                 },
                 {

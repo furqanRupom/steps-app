@@ -11,18 +11,18 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ childre
     return (
             <>
 
-                <div className="grid grid-cols-12 min-h-screen">
+            <div className="grid grid-cols-[0fr,1fr]  lg:grid-cols-[1fr,5fr] min-h-screen h-full bg-gray-900 ">
                     {/* Sidebar */}
-                    <div className="col-span-2">
+                    <div className="h-full relative">
                         <Sidebar />
                     </div>
                     {/* Main Content */}
-                    <div className="col-span-10">
-                        <div >
+                    <div  >
+                    <div>
                             {/* Header */}
                             <DashboardHeader  />
                             {/* Children Content */}
-                            <main>{children}</main>
+                            <main >{children}</main>
                         </div>
                     </div>
                 </div>

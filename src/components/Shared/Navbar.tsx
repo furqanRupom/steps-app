@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <>
       {
-       withoutNavs.includes(pathName) ? <></> : <nav className='flex justify-between items-center px-8 py-3 fixed w-full top-0 z-50  bg-opacity-70 lg:bg-opacity-25 backdrop-blur-2xl bg-slate-950'>
+       withoutNavs.includes(pathName) ? <></> : <nav className='flex justify-between items-center px-8 py-3 fixed w-full top-0 z-50  bg-opacity-70 lg:bg-opacity-25 backdrop-blur-2xlbg-slate-950'>
           <h3 className='text-red-400 text-3xl font-bold'>Step<span className='text-white'>s</span></h3>
 
           <div className="lg:hidden">

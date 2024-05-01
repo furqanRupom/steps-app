@@ -1,4 +1,4 @@
-import AdminDashboard from '@/components/dashboard/Home/AdminHome';
+import AdminDashboard from '@/components/dashboard/admin/AdminHome';
 import * as React from 'react';
 
 interface IAdminHomeProps {

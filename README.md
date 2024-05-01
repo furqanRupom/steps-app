@@ -27,7 +27,7 @@ To get started with Steps locally, follow these steps:
 2. Install dependencies using `npm install`.
 3. Set up a PostgreSQL database and update the database connection string in the `.env` file.
 4. Run `npm run dev` to start the development server.
-5. Access the application in your browser at `https://steps-app-rouge.vercel.app`.
+5. Access the application in your browser at `http://localhost:3000`.
 
 ## Feedback Section
 

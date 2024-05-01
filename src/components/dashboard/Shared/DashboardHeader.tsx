@@ -4,6 +4,7 @@ import { useGetUser } from '@/hooks/useGetUser';
 import { Session } from 'next-auth';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import * as React from 'react';
 import { BiNotification } from 'react-icons/bi';
 import { FiUser, FiLogOut, FiMessageCircle } from 'react-icons/fi';
@@ -37,8 +38,8 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
 
 
     return (
-        <header className="bg-gray-900 text-white flex items-center justify-end lg:justify-between px-12 py-5 shadow-md">
-            <h1 className="text-xl font-bold hidden lg:block">Admin Home</h1>
+        <header className="bg-gray-900 text-white flex items-center justify-end lg:justify-between px-12 py-5 shadow shadow-gray-800">
+            <h1 className="text-xl font-bold hidden lg:block"><span className='text-red-400'>{socialUser?.role === 'USER' ? 'User' : socialUser?.role === 'ADMIN' && 'Admin'} </span>Dashboard</h1>
             <div className="relative flex items-center space-x-5">
                 <div className='flex items-center space-x-3'>
                     <button>
@@ -59,23 +60,47 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
                     </span>
                 </button>
                 {isPopupOpen && (
-                    <div className="absolute top-full right-0 mt-2 text-center bg-gray-900 border border-gray-800 p-5 shadow-lg rounded-lg overflow-hidden z-10">
+                    <div className="absolute top-full right-0 mt-2 bg-gray-900 border border-gray-800  shadow-lg rounded-lg overflow-hidden z-10 w-64">
                         <div className="p-4">
-                            <div className="flex items-center space-x-4">
+                            <div className="  space-x-4">
 
                                 <div>
                                     <p className="text-gray-300 font-semibold">{socialUser?.name}</p>
-                                    <p className="text-gray-300">{socialUser?.email}</p>
+                                    <p className="text-gray-500">{socialUser?.email}</p>
+                                    <div className='w-full h-[0.10rem] bg-gray-800 my-2 left-0 absolute'>
+                                    </div>
+
+                                    <div >
+                                        <ul className='flex flex-col py-5 w-full'>
+                                            <li >
+                                                <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/">
+                                                    <span>Home</span>
+                                                    </Link>
+                                            </li>
+                                            <li >
+                                                <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/settings">Settings</Link>
+                                            </li>
+                                            <li>
+                                                <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/profile">Profile</Link>
+                                            </li>
+                            
+                                        </ul>
+                                            <div className='w-full h-[0.10rem] bg-gray-800  left-0 absolute'>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button onClick={() => signOut({
-                                callbackUrl: "https://steps-app-rouge.vercel.app/login"
-                            })} className="block w-full text-left mt-4 py-2 px-4 bg-red-400 hover:bg-red-600 transition-colors duration-300" >
-                                <div className="flex items-center space-x-2">
-                                    <FiLogOut className="h-6 w-6" />
-                                    <span>Logout</span>
-                                </div>
-                            </button>
+
+                            <div className='text-gray-300 duration-200  hover:bg-gray-800 px-2 mt-2 w-full py-2 rounded-md '>
+                                <button onClick={() => signOut({
+                                    callbackUrl: "https://steps-app-rouge.vercel.app/login"
+                                })} >
+                                    <span className='text-red-400'>Logout</span>
+
+                                </button>
+                            </div>
+
+
                         </div>
                     </div>
                 )}
