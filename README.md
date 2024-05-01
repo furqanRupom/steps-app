@@ -8,7 +8,7 @@ Steps is a full stack web application designed to help users track their progres
 - **Goal Tracking**: Users can create, edit, and delete goals, and track their progress step by step.
 - **Task Management**: Organize tasks associated with each goal, mark them as completed, and set deadlines for better productivity.
 - **User Profiles**: Personalized user profiles enable users to view and manage their goals and tasks efficiently.
-- **Feedback Section**: Users can submit feedback via a feedback form, and all feedback, including anonymous submissions, is displayed on the home page.
+- **Feedback Integration**: Integrated feedback system allows users to submit feature requests, bug reports, user experience feedback, and general comments directly from the application. Users can view all feedback, including those from anonymous users, on the home page. An additional route and page named "Feedback" allows both logged-in users and anonymous users to submit feedback via a feedback form.
 - **Responsive Design**: Ensures optimal user experience across devices of all sizes.
 
 ## Tech Stack
@@ -28,23 +28,6 @@ To get started with Steps locally, follow these steps:
 3. Set up a PostgreSQL database and update the database connection string in the `.env` file.
 4. Run `npm run dev` to start the development server.
 5. Access the application in your browser at `http://localhost:3000`.
-
-## Feedback Section
-
-### Home Page Feedback Display
-
-Users can view all feedback, including those from anonymous users, on the home page.
-
-### Feedback Submission
-
-An additional route and page named "Feedback" allows both logged-in users and anonymous users to submit feedback via a feedback form.
-
-### Types of Feedback
-
-1. **Feature Requests**: Users can suggest new features they would like to see implemented in the application.
-2. **Bug Reports**: Users can report any issues or bugs they encounter while using the application.
-3. **User Experience Feedback**: Users can provide feedback on the overall user experience, usability, and interface design.
-4. **General Comments**: Users can leave any general comments or suggestions for improvement.
 
 ## Contributing
 
