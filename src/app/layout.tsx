@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
 import Footer from "@/components/Shared/Footer";
 import { Toaster } from "sonner";
+import { NextAuthProvider } from "@/provider/NextAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={urbanist.className}>
+
+        <NextAuthProvider>
+
         <Navbar />
         {children}
         <Toaster position="top-center" toastOptions={{
@@ -35,6 +39,8 @@ export default function RootLayout({
           }
         }} />
         <Footer />
+
+        </NextAuthProvider>
       </body>
     </html>
   );

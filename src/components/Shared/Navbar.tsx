@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useState } from 'react';
 import { NavlinksGenerator } from '@/utils/NavLinksGenerator';
+import { useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +14,16 @@ const Navbar = () => {
 
 
   /* active links ----- user,admin; - dashboard -> user,admin  */
-  const navbars = NavlinksGenerator('');
+
   const pathName = usePathname();
-  const withoutNavs = ["/dashboard","/dashboard/admin"]
+  const withoutNavs = ["/dashboard","/dashboard/admin","/dashboard/user","/dashboard/superAdmin"];
+
+  const session = useSession();
+
+  const user = session.data?.user
+  const navbars = NavlinksGenerator(user?.role || "");
+
+  
 
 
 
@@ -35,7 +43,9 @@ const Navbar = () => {
 
           <ul className={`flex flex-col lg:flex-row px-12 py-5 lg:py-0 lg:px-0 space-y-3 lg:space-y-0 lg:space-x-5 text-white items-center text-lg font-normal ${isOpen ? '-translate-y-0 duration-500 lg:duration-0 lg:-translate-y-0' : '-translate-y-[1000px] duration-1000 lg:duration-0 lg:-translate-y-0'} absolute top-14 lg:top-0 left-0 lg:relative w-full lg:w-auto bg-slate-950 bg-opacity-70 backdrop-blur-md lg:bg-transparent`}>
             {
-              navbars?.map(({ path, name }) => <li key={path} className={`${path == '/login' || path == '/register' && name == 'Login' || name == 'register' ? 'border uppercase w-fit hover:text-red-400 hover:border-transparent duration-500 cursor-pointer border-red-400 py-1 px-7' : 'hover:text-red-400 duration-500 w-fit'} ${pathName == path ? 'text-red-400 border-b-2 border-red-400 ' : ''}`}>
+              user ? navbars?.map(({ path, name }) => <li key={path} className={`hover:text-red-400 duration-500 w-fit ${pathName == path ? 'text-red-400 border-b-2 border-red-400 ' : ''}`}>
+                <Link href={path}>{name}</Link>
+              </li>) : navbars?.map(({ path, name }) => <li key={path} className={`${path == '/login' || path == '/register' && name == 'Login' || name == 'register' ? 'border uppercase w-fit hover:text-red-400 hover:border-transparent duration-500 cursor-pointer border-red-400 py-1 px-7' : 'hover:text-red-400 duration-500 w-fit'} ${pathName == path ? 'text-red-400 border-b-2 border-red-400 ' : ''}`}>
                 <Link href={path}>{name}</Link>
               </li>)
             }

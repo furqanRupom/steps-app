@@ -4,16 +4,16 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 
 export const useGetUser = () => {
-    // const { status, ...sessionData } = useSession();
-    // console.log(sessionData);
+    const { status, ...sessionData } = useSession();
+    console.log(sessionData);
 
-    // const email = sessionData.data?.user?.email || ""; // Default to empty string if email is undefined
+    const email = sessionData.data?.user?.email || ""; // Default to empty string if email is undefined
 
-    const { data,status, refetch, isLoading } = useQuery({
+    const { data, refetch, isLoading } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            // if (!email) return null; // If email is undefined or empty, return null
-            const fetchedData = await fetch(`/api/user/${localStorage.getItem("email")}`, {
+            if (!email) return null; // If email is undefined or empty, return null
+            const fetchedData = await fetch(`/api/user/${email}`, {
                 next: {
                     revalidate: 5
                 }

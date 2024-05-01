@@ -9,7 +9,6 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ childre
     const session = await getServerSession(options);
     
     return (
-    <NextAuthProvider>
             <>
 
                 <div className="grid grid-cols-12 min-h-screen">
@@ -29,7 +28,6 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ childre
                 </div>
 
             </>
-    </NextAuthProvider>
     );
 };
 

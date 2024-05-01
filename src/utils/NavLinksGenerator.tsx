@@ -86,17 +86,65 @@ export const DashboardGenerator = (role: UserRole) => {
 
 
 
-export const NavlinksGenerator = (role: string) => {
-    let Navlinks = [];
+export const NavlinksGenerator = (role: UserRole | "") => {
+    let Navlinks: { path: string; name: string; }[] = [];
     switch (role) {
-        case 'user':
+        case UserRole.USER:
             Navlinks = [
                 {
                     path: "/",
                     name: "Home"
                 },
                 {
-                    path: "/dashboard",
+                    path: "/dashboard/user",
+                    name: "Dashboard"
+                },
+                {
+                    path: "/about",
+                    name: "About"
+                },
+                {
+                    path: "/contact",
+                    name: "Contact"
+                },
+                {
+                    path: "/feedback",
+                    name: "Feedback"
+                },
+            ]
+            break;
+        case UserRole.ADMIN:
+            Navlinks = [
+                {
+                    path: "/",
+                    name: "Home"
+                },
+                {
+                    path: "/dashboard/admin",
+                    name: "Dashboard"
+                },
+                {
+                    path: "/about",
+                    name: "About"
+                },
+                {
+                    path: "/contact",
+                    name: "Contact"
+                },
+                {
+                    path: "/feedback",
+                    name: "Feedback"
+                },
+            ]
+            break;
+        case UserRole.SUPER_ADMIN:
+            Navlinks = [
+                {
+                    path: "/",
+                    name: "Home"
+                },
+                {
+                    path: "/dashboard/superAdmin",
                     name: "dashboard"
                 },
                 {
@@ -112,31 +160,7 @@ export const NavlinksGenerator = (role: string) => {
                     name: "feedback"
                 },
             ]
-            return Navlinks;
-        case 'admin':
-            Navlinks = [
-                {
-                    path: "/",
-                    name: "Home"
-                },
-                {
-                    path: "/dashboard",
-                    name: "dashboard"
-                },
-                {
-                    path: "/about",
-                    name: "About"
-                },
-                {
-                    path: "/contact",
-                    name: "Contact"
-                },
-                {
-                    path: "/feedback",
-                    name: "feedback"
-                },
-            ]
-            return Navlinks;
+            break;
         default:
             Navlinks = [
                 {
@@ -160,9 +184,10 @@ export const NavlinksGenerator = (role: string) => {
                     name: "Login"
                 },
             ]
+            break;
 
-            return Navlinks;
-
+        
 
     }
+    return Navlinks;
 }

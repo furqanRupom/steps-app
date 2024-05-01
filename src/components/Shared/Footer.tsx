@@ -4,7 +4,7 @@ import React from 'react';
 
 
 const Footer = () => {
-    const withoutNavs = ["/dashboard", "/dashboard/admin"]
+    const withoutNavs = ["/dashboard", "/dashboard/admin","/dashboard/user"]
     const pathName = usePathname();
     return (
         <>
