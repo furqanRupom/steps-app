@@ -6,7 +6,6 @@ import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ children }) => {
-    const session = await getServerSession(options);
     
     return (
             <>

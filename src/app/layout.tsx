@@ -25,8 +25,6 @@ export default function RootLayout({
       <body className={urbanist.className}>
 
         <NextAuthProvider>
-
-        <Navbar />
         {children}
         <Toaster position="top-center" toastOptions={{
           style:{
@@ -38,8 +36,6 @@ export default function RootLayout({
             icon:'text-white',
           }
         }} />
-        <Footer />
-
         </NextAuthProvider>
       </body>
     </html>

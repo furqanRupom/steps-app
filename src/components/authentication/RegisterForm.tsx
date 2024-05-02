@@ -41,7 +41,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
   };
 
   return <section>
-      <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20 '>
+      <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-10 '>
           <div className='max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-20'>
               <Image loading="lazy" className='hidden lg:block' src="https://i.ibb.co/GpmwCCS/login-illustrator.png" width={800} height={400} alt='login image' />
               <div>
