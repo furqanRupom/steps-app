@@ -25,9 +25,21 @@ export const POST = async (req: NextRequest) => {
                 password: hashedPassword
             }
         });
-        await prisma.member.create({
+       
+
+
+       const member =   await prisma.member.create({
             data:userData
         });
+
+        await prisma.profile.create({
+            data: {
+                userId: user.id,
+                name: member.name,
+                email: user.email,
+                profilePhoto: member.profilePhoto
+            }
+        })
 
         return user;
 

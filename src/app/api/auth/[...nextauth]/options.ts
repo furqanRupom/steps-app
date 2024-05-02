@@ -61,7 +61,6 @@ export const options :NextAuthOptions = {
     ],
     callbacks:{
         async session({token,session}){
-            console.log({token,session})
             if(token){
                 session.user.id = token.id;
                 session.user.name = token.name;
@@ -74,13 +73,12 @@ export const options :NextAuthOptions = {
             return session;
         },
         async jwt({token,user}){
-            console.log({token,user})
             const dbUser = await prisma.user.findUnique({
                 where:{
                     email:token.email as string
                 },
                 include:{
-                    member:true
+                    profile:true
                 }
             });
 
@@ -90,9 +88,9 @@ export const options :NextAuthOptions = {
 
             return {
                 id:dbUser.id,
-                name:dbUser?.member?.name,
+                name:dbUser?.profile?.name,
                 email:dbUser.email,
-                picture:dbUser.member?.profilePhoto,
+                picture:dbUser.profile?.profilePhoto,
                 role:dbUser.role
             }
         }
