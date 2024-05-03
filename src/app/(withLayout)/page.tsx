@@ -12,14 +12,17 @@ interface IHomePageProps {
 
 
 const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
-  return <>
+  return <section >
         <Banner />
         <Values />
         <Achievement />
         <EstateinTeam />
+       
+
         <FAQAccordian />
+        
         <Journey />
-  </>;
+  </section>;
 };
 
 export default HomePage;

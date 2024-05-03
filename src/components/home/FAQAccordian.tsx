@@ -1,13 +1,9 @@
 "use client"
-import * as React from 'react';
-import { NextUIProvider } from "@nextui-org/react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import React, { useState } from 'react';
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs'; // Importing Chevron Icons from React Icons
 
-
-interface IFACAccordianProps {
-}
-
-const FAQAccordian: React.FunctionComponent<IFACAccordianProps> = (props) => {
+const FAQAccordion = () => {
+    // FAQ data
     const faqs = [
         {
             question: "How can I track my goals using Steps?",
@@ -26,25 +22,53 @@ const FAQAccordian: React.FunctionComponent<IFACAccordianProps> = (props) => {
             answer: "We welcome your feedback and suggestions! You can reach out to our support team through the contact form on our website or directly from within the Steps application. Your input helps us improve and enhance the platform to better meet your needs."
         }
     ];
-    return <section className='min-h-[400px] bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl pt-32 pb-8 px-8 lg:px-0'>
-        <NextUIProvider>
 
-            <div className='max-w-7xl mx-auto'>
-                <h2 className="text-3xl text-white font-semibold  mb-6">Frequently Asked Questions</h2>
+    // State to manage accordion toggling
+    const [isOpen, setIsOpen] = useState(null);
+
+    // Function to toggle accordion
+    const toggle = (idx:any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
+
+    return (
+        <section className='min-h-[400px] bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl pt-32 pb-8 px-8 lg:px-0 '>
+
+            <div className='max-w-7xl mx-auto  '>
+                <h2 className="text-3xl text-white font-semibold mb-6">Frequently Asked Questions</h2>
                 <p className='text-gray-500 leading-relaxed pb-12'>
                     Have questions? We have got answers! Check out our frequently asked questions to learn more about using Steps.
                 </p>
-                <Accordion  >
-                   {
-                    faqs.map((faq) => <AccordionItem key={faq.question} title={faq.question}>
-                         {faq.answer}
-                    </AccordionItem>)
-                   }
-                </Accordion>
-
+                <div className='relative min-h-96'>
+                    <div className="rounded-lg  mx-auto  absolute">
+                        {faqs.map((data, idx) => (
+                            <div key={idx}>
+                                {/* FAQ Item */}
+                                <div onClick={() => toggle(idx)} className="px-4 md:px-8 py-6 cursor-pointer">
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="text-white">{data.question}</h4>
+                                        
+                                        <span className="mr-4 text-red-400">
+                                            {isOpen === idx ? <BsChevronUp /> : <BsChevronDown />}
+                                        </span>
+                                    </div>
+                                   
+                                </div>
+                                <div className='w-full h-[0.1rem] bg-gray-900 '></div>
+                                {/* Answer */}
+                                <div className={`grid overflow-hidden transition-all duration-300 ease-in-out ${isOpen === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                                    <div className="overflow-hidden">
+                                        <div className="text-gray-500 py-6  px-5 lg:px-12 ">
+                                            {data.answer}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </NextUIProvider>
-    </section>;
+        </section>
+    );
 };
 
-export default FAQAccordian;
+export default FAQAccordion;
+

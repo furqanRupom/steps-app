@@ -11,7 +11,11 @@ const CommonLayout: React.FunctionComponent< CommonLayoutProps> = ({children}) =
 
   <Navbar />
 
+
+    <main className='bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl'>
+
   {children}
+</main>
 
   <Footer />
   
