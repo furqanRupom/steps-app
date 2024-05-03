@@ -54,7 +54,7 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
 
 
                     >
-                        <Image className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500 ring ring-gray-800" width={20} height={20} src={socialUser?.image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
+                        <Image className="relative object-cover ring ring-red-400 inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500 hover:ring-red-500 duration-500" width={20} height={20} src={socialUser?.image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
 
 
                     </span>
@@ -81,7 +81,7 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
                                                 <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/settings">Settings</Link>
                                             </li>
                                             <li>
-                                                <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/profile">Profile</Link>
+                                                <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/dashboard/profile">Profile</Link>
                                             </li>
                             
                                         </ul>

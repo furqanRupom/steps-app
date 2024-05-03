@@ -1,5 +1,7 @@
 import { options } from '@/app/api/auth/[...nextauth]/options';
+import { UserProgressChart } from '@/components/charts/UserProgressChart';
 import { getServerSession } from 'next-auth';
+import Image from 'next/image';
 import * as React from 'react';
 
 interface IAppProps {
@@ -9,7 +11,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
     const session = await getServerSession(options);
     const name = session?.user.name;
   return <>
-      <section className='grid  grid-cols-1 lg:grid-cols-[6fr,2fr] mx-auto  p-10 w-full gap-5 '>
+      <section className='grid  grid-cols-1 lg:grid-cols-[5fr,3fr] mx-auto  p-10 w-full gap-5 '>
           <div className=" flex flex-col lg:flex-row items-center  overflow-hidden  rounded-3xl  text-slate-500  w-full bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl r">
    
               {/*  <!-- Body--> */}
@@ -26,7 +28,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
               </div>
 
               <figure >
-                  <img
+                  <Image width={400} height={300}
                       src="https://i.postimg.cc/9Fk8pJ22/Untitled-design-4-removebg-preview.png"
                       alt="card image"
                       className="object-cover min-h-full aspect-auto"
@@ -39,7 +41,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
           <div >
               <div className="max-w-md mx-auto  bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl shadow-lg rounded-3xl overflow-hidden h-full">
                   <div className="px-6 py-4  bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl  flex items-center justify-between">
-                      <h2 className="font-bold text-lg text-gray-400">Goals & Tasks Progress</h2>
+                      <h2 className="font-bold  text-gray-400">Goals & Tasks Progress</h2>
                       <div className="flex items-center">
                           <span className="text-sm text-gray-600 mr-2"><i className="ri-goal-line"></i> Goals: 10</span>
                           <span className="text-sm text-gray-600"><i className="ri-task-line"></i> Tasks: 20</span>
@@ -78,6 +80,8 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
            
           </div>
       </section>
+
+      {/* user charts */}
 
    
   </>;

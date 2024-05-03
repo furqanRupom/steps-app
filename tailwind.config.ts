@@ -10,8 +10,9 @@ const config: Config = {
   theme: {
 
     extend: {
-     
+    
     },
   },
+  plugins: [require('@headlessui/tailwindcss'), require('@tailwindcss/forms')]
 };
 export default config;
