@@ -10,7 +10,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ childre
     return (
             <>
 
-            <div className="grid grid-cols-[0fr,1fr]  lg:grid-cols-[1fr,5fr] min-h-screen h-full bg-gray-900 ">
+            <div className="grid grid-cols-[0fr,1fr]  lg:grid-cols-[1fr,5fr] min-h-screen h-full bg-slate-950">
                     {/* Sidebar */}
                     <div className="h-full relative">
                         <Sidebar />

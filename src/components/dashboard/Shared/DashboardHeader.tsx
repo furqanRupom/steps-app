@@ -38,8 +38,8 @@ const DashboardHeader: React.FunctionComponent<IDashboardHeaderProps> = () => {
 
 
     return (
-        <header className="bg-gray-900 text-white flex items-center justify-end lg:justify-between px-12 py-5 shadow shadow-gray-800">
-            <h1 className="text-xl font-bold hidden lg:block"><span className='text-red-400'>{socialUser?.role === 'USER' ? 'User' : socialUser?.role === 'ADMIN' && 'Admin'} </span>Dashboard</h1>
+        <header className="bg-slate-950 text-white flex items-center justify-end lg:justify-between px-12 py-5 shadow shadow-gray-800">
+            <h1 className="text-xl font-bold hidden lg:block"><span className='text-red-400'>{socialUser?.role === 'USER' ? 'User' : socialUser?.role === 'ADMIN' && 'Admin'} </span>Home</h1>
             <div className="relative flex items-center space-x-5">
                 <div className='flex items-center space-x-3'>
                     <button>

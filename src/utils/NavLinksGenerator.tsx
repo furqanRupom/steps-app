@@ -22,7 +22,7 @@ export const DashboardGenerator = (role: UserRole) => {
             Navlinks = [
                 {
                     path: "/dashboard",
-                    name: "user dashboard",
+                    name: "Dashboard",
                     icon: <FiUser />
                 },
                 {
@@ -46,7 +46,7 @@ export const DashboardGenerator = (role: UserRole) => {
             Navlinks = [
                 {
                     path: "/dashboard",
-                    name: "Admin dashboard",
+                    name: "Dashboard",
                     icon: <GrUserAdmin />
                 },
                 {

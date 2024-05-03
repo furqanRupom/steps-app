@@ -19,7 +19,7 @@ const Sidebar: React.FunctionComponent<ISidebarProps> = () => {
         <div className="absolute overflow-hidden lg:static lg:shadow-md lg:shadow-gray-800 h-full z-50 lg:z-0 min-h-full ">
 
 
-            <div className="flex items-center justify-between bg-gray-900 py-[26px] lg:py-0 ">
+            <div className="flex items-center justify-between bg-slate-950 py-[26px] lg:py-0 ">
                 <Link href="/">
                     <h1 className="text-xl lg:text-3xl px-4 lg:py-5 text-red-400 flex items-center cursor-pointer overflow-hidden">
                         Step<span className="text-white">s</span>
@@ -39,10 +39,10 @@ const Sidebar: React.FunctionComponent<ISidebarProps> = () => {
             ></div>
             
             <div
-                className={`flex absolute flex-row bg-gray-900 min-h-full lg:static w-full  lg:translate-x-0 transition-transform duration-300 ease-in-out  ${showSidebar ? '' : '-translate-x-full'
+                className={`flex absolute flex-row bg-slate-950 min-h-full lg:static w-full  lg:translate-x-0 transition-transform duration-300 ease-in-out  ${showSidebar ? '' : '-translate-x-full'
                     } lg:translate-x-0 transform h-full lg:h-auto`}
             >
-                <div className="flex flex-col  lg:w-56 bg-gray-900 w-full rounded-r-3xl overflow-hidden z-50 lg:z-0">
+                <div className="flex flex-col  lg:w-56 bg-slate-950 w-full rounded-r-3xl overflow-hidden z-50 lg:z-0">
                     <ul className="flex flex-col py-4 justify-center lg:justify-start">
                         {sidebarLinks?.map(({ path, name, icon }) => (
                             <li key={name}>

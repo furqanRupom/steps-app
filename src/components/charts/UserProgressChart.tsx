@@ -3,66 +3,18 @@
 import { AreaChart } from '@tremor/react';
 
 const chartdata = [
-    {
-        date: 'Jan 22',
-        SemiAnalysis: 2890,
-        'The Pragmatic Engineer': 2338,
-    },
-    {
-        date: 'Feb 22',
-        SemiAnalysis: 2756,
-        'The Pragmatic Engineer': 2103,
-    },
-    {
-        date: 'Mar 22',
-        SemiAnalysis: 3322,
-        'The Pragmatic Engineer': 2194,
-    },
-    {
-        date: 'Apr 22',
-        SemiAnalysis: 3470,
-        'The Pragmatic Engineer': 2108,
-    },
-    {
-        date: 'May 22',
-        SemiAnalysis: 3475,
-        'The Pragmatic Engineer': 1812,
-    },
-    {
-        date: 'Jun 22',
-        SemiAnalysis: 3129,
-        'The Pragmatic Engineer': 1726,
-    },
-    {
-        date: 'Jul 22',
-        SemiAnalysis: 3490,
-        'The Pragmatic Engineer': 1982,
-    },
-    {
-        date: 'Aug 22',
-        SemiAnalysis: 2903,
-        'The Pragmatic Engineer': 2012,
-    },
-    {
-        date: 'Sep 22',
-        SemiAnalysis: 2643,
-        'The Pragmatic Engineer': 2342,
-    },
-    {
-        date: 'Oct 22',
-        SemiAnalysis: 2837,
-        'The Pragmatic Engineer': 2473,
-    },
-    {
-        date: 'Nov 22',
-        SemiAnalysis: 2954,
-        'The Pragmatic Engineer': 3848,
-    },
-    {
-        date: 'Dec 22',
-        SemiAnalysis: 3239,
-        'The Pragmatic Engineer': 3736,
-    },
+      { date: 'Jan 22', 'goalsCompleted': 5, 'tasksCompleted': 20 },
+    { date: 'Feb 22', 'goalsCompleted': 7, 'tasksCompleted': 25 },
+    { date: 'Mar 22', 'goalsCompleted': 10, 'tasksCompleted': 8 },
+    { date: 'Apr 22', 'goalsCompleted': 12, 'tasksCompleted': 11 },
+    { date: 'May 22', 'goalsCompleted': 17, 'tasksCompleted': 12 },
+    { date: 'Jun 22', 'goalsCompleted': 34, 'tasksCompleted': 15 },
+    { date: 'Jul 22', 'goalsCompleted': 23, 'tasksCompleted': 12 },
+    { date: 'Aug 22', 'goalsCompleted': 11, 'tasksCompleted': 20 },
+    { date: 'Sep 22', 'goalsCompleted': 25, 'tasksCompleted': 30 },
+    { date: 'Oct 22', 'goalsCompleted': 28, 'tasksCompleted': 25 },
+    { date: 'Nov 22', 'goalsCompleted': 30, 'tasksCompleted': 21 },
+    { date: 'Dec 22', 'goalsCompleted': 20, 'tasksCompleted': 33 },
 ];
 
 const dataFormatter = (number: number | bigint) =>
@@ -70,14 +22,22 @@ const dataFormatter = (number: number | bigint) =>
 
 export function UserProgressChart() {
     return (
-        <AreaChart
-            className="h-80 text-white"
-            data={chartdata}
 
-            index="date"
-            categories={['SemiAnalysis', 'The Pragmatic Engineer']}
-            colors={['red', 'gray']}
+        <div className='bg-gradient-to-tr from-gray-900 to-gray-950 p-1 lg:p-3 rounded-3xl'>
+            <h3 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content mb-5 text-center lg:text-left">Goals and Tasks Overview</h3>
 
-        />
+            <AreaChart 
+                className="h-80  text-dark-tremor-content-strong mt-3"
+                data={chartdata}
+                showAnimation={true}
+                animationDuration={5}
+                showTooltip={true}
+                showLegend={false}
+                index="date"
+                categories={['goalsCompleted', 'tasksCompleted']}
+                colors={['red', 'gray']}
+    
+            />
+        </div>
     );
 }

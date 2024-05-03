@@ -1,4 +1,8 @@
 import { options } from '@/app/api/auth/[...nextauth]/options';
+import { UserbarList } from '@/components/UI/List/UserBarList';
+import { UserProgressTable } from '@/components/UI/Table/UserProgressTable';
+import UserProgressHistory from '@/components/UI/progress/UserProgressHistory';
+import UserBarChart from '@/components/charts/UserBarChart';
 import { UserProgressChart } from '@/components/charts/UserProgressChart';
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
@@ -74,7 +78,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
                       </div>
                   </div>
 
-                  <button className='text-red-400  font-bold mx-12 my-12 lg:mt-5 bg-slate-900 px-7 py-3 rounded-lg hover:bg-gray-800'>view taks and goals</button>
+                  <button className='text-red-400  font-semibold mx-12 my-12 lg:mt-5 bg-slate-900 px-7 py-3 rounded-lg hover:bg-gray-800'>view tasks and goals</button>
               </div>
 
            
@@ -82,6 +86,18 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
       </section>
 
       {/* user charts */}
+
+      <section className='grid gap-10  lg:grid-cols-[4fr,2fr]  px-3 lg:px-8 mx-auto'>
+
+      <UserProgressChart />
+      <UserBarChart />
+      </section>
+
+      <section className='grid lg:grid-cols-[4fr,2fr] px-10 gap-10 my-12'>
+        <UserProgressTable />
+        <UserProgressHistory />
+      </section>
+
 
    
   </>;

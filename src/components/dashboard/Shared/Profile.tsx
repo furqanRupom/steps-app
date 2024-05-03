@@ -20,7 +20,7 @@ const UserProfile: React.FunctionComponent<IUserProfileProps> = ({ profilePhoto,
 
         <>
            
-            <section className="w-full overflow-hidden dark:bg-gray-900">
+            <section className="w-full overflow-hidden bg-gradient-to-bl from-slate-900 to-slate-950">
                 <div className="flex flex-col">
                     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjb3ZlcnxlbnwwfDB8fHwxNzEwNzQxNzY0fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="User Cover"
                         className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[14rem] xs:h-[11rem]" />
