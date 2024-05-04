@@ -52,7 +52,7 @@ const Values: React.FunctionComponent<IValuesProps> = (props) => {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 text-white gap-10 '>
                 {
-                    values.map((value) => <Card className='' key={value.heading}>
+                    values.map((value) => <Card className='border-none bg-slate-900' key={value.heading}>
                         <div className='flex items-center space-x-2 pb-5 '>
 
                             <Image width={40} src={value.iconsPath} alt='icon' />

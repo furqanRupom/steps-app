@@ -46,7 +46,7 @@ const Expert: React.FC = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {cards.map(({icon,title,description}, index) => (
-                        <Card key={index} className="bg-white rounded-lg shadow-md p-6">
+                        <Card key={index} className=" rounded-lg shadow-md p-6">
                             <div className="flex items-center mb-4">
                                 <div className="flex-shrink-0 mr-4">
                                     <Icon color='red' className='text-red-400' icon={icon} />

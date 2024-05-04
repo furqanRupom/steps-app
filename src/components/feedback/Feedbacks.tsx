@@ -67,7 +67,7 @@ const Feedbacks: React.FunctionComponent<IFeedbacksProps> = (props) => {
             <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
           </div>
           {/* Feedback Content */}
-          <Card className={`rounded-lg shadow-xl w-full lg:w-5/12 px-6 py-4 ${index % 2 === 0 ? 'bg-gray-900' : 'bg-slate-900'} text-gray-200 text-xl text-left`}>
+          <Card decoration='left' decorationColor='red' className={`rounded-lg shadow-xl w-full lg:w-5/12 px-6 py-4 ${index % 2 === 0 ? 'bg-gray-900' : 'bg-slate-900'} text-gray-200 text-xl text-left`}>
             
 
             <blockquote className='italic'>
