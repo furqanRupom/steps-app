@@ -6,7 +6,7 @@ interface IAchievementProps {
 const Achievement: React.FunctionComponent<IAchievementProps> = (props) => {
     return <section className="pt-16 lg:pt-40 pb-8 bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl">
         <div className="container mx-auto px-4 max-w-7xl">
-            <h2 className="text-3xl font-semibold text-white mb-6">Our Achievements</h2>
+            <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-6">Our Achievements</h2>
             <p className="text-lg text-gray-400 mb-8">
                 At Steps, we are proud of the impact our platform has had on helping users reach their goals and improve their productivity.
             </p>

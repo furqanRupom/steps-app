@@ -1,9 +1,7 @@
 import React from 'react';
 import DashboardHeader from '@/components/dashboard/Shared/DashboardHeader';
 import Sidebar from '@/components/dashboard/Shared/Sidebar';
-import { NextAuthProvider } from '@/provider/NextAuthProvider';
-import { getServerSession } from 'next-auth';
-import { options } from '@/app/api/auth/[...nextauth]/options';
+
 
 const DashboardLayout: React.FC<{ children: React.ReactNode }> = async({ children }) => {
     

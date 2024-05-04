@@ -13,7 +13,7 @@ import {
 export const UserProgressTable = () => (
     <div className='bg-gradient-to-tr from-gray-900 to-gray-950 p-1 lg:p-3 rounded-3xl'>
         <h3 className='text-tremor-content text-tremor-subtile py-5'>My Progress and Task Status</h3>
-        <Table className='max-w-[26rem] lg:max-w-full'>
+        <Table className='max-w-[20rem] lg:max-w-full'>
             <TableHead>
                 <TableRow>
                     <TableHeaderCell>Goal Name</TableHeaderCell>

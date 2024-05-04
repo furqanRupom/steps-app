@@ -15,7 +15,7 @@ const teamMembers = [
 const EstateinTeam: React.FunctionComponent<IEstateinTeamProps> = (props) => {
     return <section className="pt-16 lg:pt-40 pb-8 bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl">
         <div className="container px-4 max-w-7xl mx-auto">
-            <h2 className="text-3xl text-white font-semibold  mb-6">Meet the Estatein Team</h2>
+            <h2 className="text-2xl lg:text-3xl text-white font-semibold  mb-6">Meet the Estatein Team</h2>
             <p className='text-gray-500 leading-relaxed pb-6'>
                 Get to know the talented individuals behind Estatein who are dedicated to creating innovative solutions to meet your needs.
                 They bring diverse expertise and a shared passion for excellence to every project, ensuring that you receive the best possible service.

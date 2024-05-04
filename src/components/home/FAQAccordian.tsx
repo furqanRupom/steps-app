@@ -19,7 +19,7 @@ const FAQAccordion = () => {
         },
         {
             question: "How can I provide feedback or suggest new features?",
-            answer: "We welcome your feedback and suggestions! You can reach out to our support team through the contact form on our website or directly from within the Steps application. Your input helps us improve and enhance the platform to better meet your needs."
+            answer: "We welcome your feedback and suggestions! You can reach out to our support team through the contact form on our website or directly from within the Steps application. "
         }
     ];
 
@@ -30,15 +30,15 @@ const FAQAccordion = () => {
     const toggle = (idx:any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
 
     return (
-        <section className='min-h-[400px] bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl pt-32 pb-8 px-8 lg:px-0 '>
+        <section className='min-h-450px] lg:min-h-[400px] h-full bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
 
-            <div className='max-w-7xl mx-auto  '>
-                <h2 className="text-3xl text-white font-semibold mb-6">Frequently Asked Questions</h2>
+            <div className=' max-w-7xl mx-auto px-2 '>
+                <h2 className="text-2xl text-white font-semibold mb-6 ">Frequently Asked Questions</h2>
                 <p className='text-gray-500 leading-relaxed pb-12'>
                     Have questions? We have got answers! Check out our frequently asked questions to learn more about using Steps.
                 </p>
-                <div className='relative min-h-96'>
-                    <div className="rounded-lg  mx-auto  absolute">
+                <div className='relative min-h-[450px]  lg:min-h-96'>
+                    <div className="rounded-lg  mx-auto h-full  absolute">
                         {faqs.map((data, idx) => (
                             <div key={idx}>
                                 {/* FAQ Item */}
@@ -46,7 +46,7 @@ const FAQAccordion = () => {
                                     <div className="flex items-center justify-between">
                                         <h4 className="text-white">{data.question}</h4>
                                         
-                                        <span className="mr-4 text-red-400">
+                                        <span className="mr-4 text-red-400 hidden md:block">
                                             {isOpen === idx ? <BsChevronUp /> : <BsChevronDown />}
                                         </span>
                                     </div>
