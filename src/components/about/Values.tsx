@@ -6,6 +6,7 @@ import icon2 from "@/assets/images/icons/icon2.png"
 import icon3 from "@/assets/images/icons/icon3.png"
 import icon4 from "@/assets/images/icons/icon4.png"
 import Image from 'next/image';
+import { Card } from '@tremor/react';
 
 interface IValuesProps {
 }
@@ -41,7 +42,7 @@ const Values: React.FunctionComponent<IValuesProps> = (props) => {
         <section className='grid grid-cols-1 lg:grid-cols-[2fr,3fr] max-w-7xl mx-auto gap-10 items-center px-8 lg:px-0'>
 
             <div>
-                <h3 className='text-xl lg:text-3xl font-semibold pb-5 text-white'>Our Values</h3>
+                <h3 className='text-2xl lg:text-3xl font-semibold pb-5 text-white'>Our Values</h3>
                 <p className='text-gray-500 leading-relaxed'>
                     At Steps, we are committed to upholding core values that guide our interactions with users, shape our decisions, and define our culture. These values reflect our dedication to creating a supportive and empowering environment for our community.
                 </p>
@@ -49,16 +50,16 @@ const Values: React.FunctionComponent<IValuesProps> = (props) => {
             </div>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 text-white gap-10 bg-gray-500 bg-opacity-5 backdrop-blur-lg p-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 text-white gap-10 '>
                 {
-                    values.map((value) => <article key={value.heading}>
-                        <div className='flex items-center space-x-2 pb-5'>
+                    values.map((value) => <Card className='' key={value.heading}>
+                        <div className='flex items-center space-x-2 pb-5 '>
 
                             <Image width={40} src={value.iconsPath} alt='icon' />
                             <h3>{value.heading}</h3>
                         </div>
                         <p className=' leading-relaxed text-gray-400'>{value.description}</p>
-                    </article>)
+                    </Card>)
                 }
 
 

@@ -1,9 +1,10 @@
-import Achievement from '@/components/home/Achievement';
+import Journey from '@/components/Shared/Journey';
+import Feedbacks from '@/components/feedback/Feedbacks';
 import Banner from '@/components/home/Banner';
-import EstateinTeam from '@/components/home/EstateinTeam';
+import Expert from '@/components/home/Expert';
 import FAQAccordian from '@/components/home/FAQAccordian';
-import Journey from '@/components/home/Journey';
-import Values from '@/components/home/Values';
+import Featured from '@/components/home/Featured';
+import HowItWorks from '@/components/home/HowWorks';
 import * as React from 'react';
 
 interface IHomePageProps {
@@ -12,16 +13,17 @@ interface IHomePageProps {
 
 
 const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
-  return <section >
-        <Banner />
-        <Values />
-        <Achievement />
-        <EstateinTeam />
-       
+  return <section className='bg-gradient-to-tr from-gray-900 to-gray-950'>
+    <Banner />
+    {/* Features Section */}
+    <Featured />
+    {/* How it wors section */}
+    <HowItWorks />
+    <Expert />
+    <Feedbacks />
+    <FAQAccordian />
+    <Journey />
 
-        <FAQAccordian />
-        
-        <Journey />
   </section>;
 };
 

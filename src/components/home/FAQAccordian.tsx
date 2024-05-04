@@ -30,7 +30,7 @@ const FAQAccordion = () => {
     const toggle = (idx:any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
 
     return (
-        <section className='min-h-450px] lg:min-h-[400px] h-full bg-gradient-to-br from-gray-900 to-gray-950 backdrop-blur-2xl pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
+        <section className='min-h-450px] lg:min-h-[400px] h-full pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
 
             <div className=' max-w-7xl mx-auto px-2 '>
                 <h2 className="text-2xl text-white font-semibold mb-6 ">Frequently Asked Questions</h2>

@@ -12,7 +12,6 @@ export const metadata = {
 
 const FeedbackPage: React.FunctionComponent<IFeedbackPageProps> = (props) => {
   return <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20'>
-    <Feedbacks />
     <FeedbackForm />
   </section>;
 };

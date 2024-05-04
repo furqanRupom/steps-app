@@ -6,7 +6,7 @@ interface IJourneyProps {
 }
 
 const Journey: React.FunctionComponent<IJourneyProps> = (props) => {
-    return <section className='w-full h-full bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl relative  pt-3 lg:pt-32 '>
+    return <section className='w-full h-full  relative  pt-3 lg:pt-32 '>
         <div className='absolute left-0 bottom-0 overflow-hidden '>
             <Image width={400} height={200} src={abstract1} alt='abstract image' />
         </div>

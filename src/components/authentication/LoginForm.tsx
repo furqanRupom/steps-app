@@ -6,6 +6,7 @@ import { signIn } from 'next-auth/react';
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import { Button } from '@tremor/react';
 
 interface ILoginFormProps {
 }
@@ -20,10 +21,12 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
 
     /* handle login form  */
     const { register, handleSubmit } = useForm<ILoginData>();
+    const [isLoading,setIsLoading] = React.useState<boolean>(false)
     const router = useRouter();
 
     const handleLoginSubmit = async (data: ILoginData) => {
         const toastId = toast.loading("Login on process...");
+        setIsLoading(true);
         try {
             const res = await signIn("credentials", {
                 email: data.email,
@@ -34,11 +37,13 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
             if (res?.ok) {
                 toast.success("user login successfully !", { id: toastId });
                 router.push("/dashboard");
+                setIsLoading(false);
             }
 
 
         } catch (error: any) {
             toast.error(error.message, { id: toastId })
+            setIsLoading(false);
             console.log(error)
             // router.push("/login")
 
@@ -103,12 +108,15 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                     New to Steps? Register
                                 </Link>
                             </div>
-                            <button
+                            <Button 
+                            variant='primary'
                                 type="submit"
-                                className="w-full bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                color='red'
+                                loading={isLoading}
+                                className="w-full bg-red-400  hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             >
-                                Login
-                            </button>
+                               Login
+                            </Button>
                         </form>
                     </div>
                 </div>

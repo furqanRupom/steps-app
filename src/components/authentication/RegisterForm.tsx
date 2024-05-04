@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import {useRouter} from "next/navigation"
 import registerSchemaValidation from '@/lib/validation/auth/register.validation';
+import { Button } from '@tremor/react';
 
 
 interface IRegisterFormProps {
@@ -23,20 +24,25 @@ interface IRegisterData {
 
 const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
   const {register,handleSubmit} = useForm<IRegisterData>()
+    const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const router = useRouter();
+
 
   const handleRegisterSubmit = async (data:IRegisterData) => {
     const toastId = toast.loading("Registration on process...")
+    setIsLoading(true);
    try {
 
     const res = await axios.post('/api/register',data);
     if(res.data.success){
         toast.success("user Registration successfully !",{id:toastId});
         router.push("/login");
+        setIsLoading(false)
     }
    } catch (error : any) {
        toast.error(error.message, { id: toastId });
        router.push("/login");
+       setIsLoading(false);
    }
   };
 
@@ -131,12 +137,14 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                           >
                               Already have an account? sign in
                           </Link>
-                          <button
+                          <Button
+                             color='red'
+                             loading={isLoading}
                               type="submit"
                               className="w-full bg-red-400 mt-4 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                           >
-                              Register
-                          </button>
+                             Register
+                          </Button>
                       </form>
                   </div>
               </div>

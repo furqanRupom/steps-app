@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html  lang="en">
       <body className={urbanist.className}>
-        <ThemeProvider attribute="class" enableSystem defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <NextAuthProvider>
             {children}
             <Toaster position="top-center" toastOptions={{

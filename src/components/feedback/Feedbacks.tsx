@@ -1,22 +1,52 @@
+
+import { Card } from '@tremor/react';
+import axios from 'axios';
 import * as React from 'react';
-import prisma from "@/prisma/client"
 
 interface IFeedbacksProps {
 }
-const allFeedbacks = async () => {
-  const feedback = await prisma.feedback.findMany();
-  return feedback;
-}
 
-const feedbacks = await allFeedbacks();
+
+
+
+
 
 
 
 
 const Feedbacks: React.FunctionComponent<IFeedbacksProps> = (props) => {
-  return <div className="container mx-auto w-full h-full max-w-7xl pt-12">
+  const feedbacks = [
+    {
+      id: 1,
+      feedback: "Steps has been a game-changer for me! The goal and task tracking features are incredibly intuitive and easy to use.",
+      name: "Sarah Thompson"
+    },
+    {
+      id: 2,
+      feedback: "I can't thank Steps enough for helping me organize my life. The ability to track my goals and tasks in one place has made such a difference. ",
+      name: "David Rodriguez"
+    },
+    {
+      id: 3,
+      feedback: "Steps has been a lifesaver for me! As someone with a busy schedule, staying organized can be a challenge. But with Steps, I've finally found a tool that works for me.",
+      name: "Emily Chen"
+    },
+    {
+      id: 4,
+      feedback: "I've tried a lot of goal tracking websites in the past, but none of them compare to Steps. The interface is sleek and user-friendly, and the customization options allow me to tailor it to my specific needs. .",
+      name: "Michael Evans"
+    },
+    {
+      id: 5,
+      feedback: "I can't imagine my life without Steps now. It's become an essential part of my daily routine, and I've seen a significant improvement in my productivity and time management skills. ",
+      name: "Jessica Lee"
+    }
+  ];
+
+ 
+  return <div className="container mx-auto w-full h-full max-w-7xl pt-12 px-4 mt-8">
     <div>
-      <h1 className="text-xl lg:text-4xl pb-3 text-white">
+      <h1 className="text-2xl lg:text-3xl pb-3 text-white">
         Client Feedbacks
       </h1>
       <p>
@@ -37,14 +67,14 @@ const Feedbacks: React.FunctionComponent<IFeedbacksProps> = (props) => {
             <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
           </div>
           {/* Feedback Content */}
-          <div className={`rounded-lg shadow-xl w-full lg:w-5/12 px-6 py-4 ${index % 2 === 0 ? 'bg-gray-900' : 'bg-slate-900'} text-gray-200 text-xl text-left`}>
+          <Card className={`rounded-lg shadow-xl w-full lg:w-5/12 px-6 py-4 ${index % 2 === 0 ? 'bg-gray-900' : 'bg-slate-900'} text-gray-200 text-xl text-left`}>
             
 
             <blockquote className='italic'>
-              <p className="text-xs lg:text-medium leading-snug tracking-wide ">&quot;{feedback.feedback}&quot;</p>
+              <p className="text-xs lg:text-medium leading-snug tracking-wide text-gray-400 ">&quot;{feedback.feedback}&quot;</p>
             </blockquote>
-            <h3 className=" font-semibold text-sm pt-3 text-right">- {feedback.name}</h3>
-          </div>
+            <h3 className="  text-sm pt-3 text-right text-gray-50">- {feedback.name}</h3>
+          </Card>
         </div>
       ))}
     </div>
