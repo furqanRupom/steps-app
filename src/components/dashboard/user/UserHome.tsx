@@ -15,7 +15,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async(props) => {
     const session = await getServerSession(options);
     const name = session?.user.name;
   return <>
-      <section className='grid grid-cols-1 p-3 lg:grid-cols-[5fr,3fr] mx-auto lg:p-10 w-full gap-5'>
+      <section className='grid grid-cols-1 p-3 sm:grid-cols-2 lg:grid-cols-[5fr,3fr] mx-auto lg:p-10 w-full gap-5'>
           <div className="flex flex-col lg:flex-row items-center overflow-hidden rounded-3xl text-slate-500 w-full bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl r">
               {/* <!-- Body--> */}
               <div className="p-6 sm:mx-6 sm:px-0">
