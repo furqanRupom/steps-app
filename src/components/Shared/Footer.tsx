@@ -19,10 +19,10 @@ const Footer = () => {
                             </a>
                             <p className="mt-2 text-sm text-gray-500">Subscribe to our newsletter for updates.</p>
                             {/* Input field for newsletter subscription */}
-                            <div className="flex mt-4 space-x-4 justify-center lg:justify-start">
-                                <input type="email" className="border border-gray-300 focus:outline-none rounded-md px-4 py-2 w-1/2" placeholder="Your email address" />
+                            <div className="flex flex-col space-y-3  mt-4 lg:space-x-4 justify-center lg:justify-start">
+                                <input type="email" className="border border-gray-300 focus:outline-none rounded-md px-4 py-2 w-full lg:w-1/2" placeholder="Your email address" />
                                 {/* Send button */}
-                                <button className="inline-flex text-white text-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-md">Subscribe</button>
+                                <button className="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-md">Subscribe</button>
                             </div>
                         </div>
                         {/* Navigation Links */}
