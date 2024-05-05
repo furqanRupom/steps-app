@@ -56,17 +56,17 @@ const DashboardHeader: React.FunctionComponent = () => {
                                         <div className='w-full h-[0.10rem] bg-gray-800 my-2 left-0 absolute'></div>
                                         <div>
                                             <ul className='flex flex-col py-5 w-full'>
-                                                <li>
+                                                <Menu.Button>
                                                     <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/">
                                                         <span>Home</span>
                                                     </Link>
-                                                </li>
-                                                <li>
+                                                </Menu.Button>
+                                                <Menu.Button>
                                                     <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/settings">Settings</Link>
-                                                </li>
-                                                <li>
+                                                </Menu.Button>
+                                                <Menu.Button>
                                                     <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/dashboard/profile">Profile</Link>
-                                                </li>
+                                                </Menu.Button>
                                             </ul>
                                             <div className='w-full h-[0.10rem] bg-gray-800  left-0 absolute'></div>
                                         </div>
