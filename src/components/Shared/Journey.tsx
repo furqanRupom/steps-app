@@ -30,7 +30,7 @@ const Journey: React.FunctionComponent<IJourneyProps> = (props) => {
             </div>
 
             <div className=' lg:ml-auto z-10'>
-                <button className="text-lg lg:text-xl px-5 py-2 lg:px-9 lg:py-3 rounded-md text-red-500 hover:bg-red-500 duration-500 font-semibold text-white">
+                <button className="text-lg lg:text-xl px-5 py-2 lg:px-9 lg:py-3 rounded-md bg-red-500 hover:bg-red-600 duration-500 font-semibold text-white">
                     Explore Now
                 </button>
             </div>
