@@ -6,7 +6,7 @@ interface IdashboardLoadingPageProps {
 }
 
 const dashboardLoadingPage: React.FunctionComponent<IdashboardLoadingPageProps> = (props) => {
-  return <section className='absolute inset-0 flex items-center justify-center w-full h-full bg-gray-950'>
+  return <section className='absolute inset-0 flex items-center justify-center w-full h-full bg-gray-950 z-20'>
     <Image src={dashboradGif} alt='loading' width={100} height={100} />
   </section>;
 };
