@@ -21,7 +21,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
 
     /* handle login form  */
     const { register, handleSubmit } = useForm<ILoginData>();
-    const [isLoading,setIsLoading] = React.useState<boolean>(false)
+    const [isLoading, setIsLoading] = React.useState<boolean>(false)
     const router = useRouter();
 
     const handleLoginSubmit = async (data: ILoginData) => {
@@ -60,7 +60,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                 <div>
                     <div className="max-w-lg mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg ">
                         <h1 className="text-3xl text-center mb-8 text-white">Welcome to <span className='text-red-400'>Steps</span></h1>
-                       
+
 
 
                         <form onSubmit={handleSubmit(handleLoginSubmit)}>
@@ -108,14 +108,14 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                     New to Steps? Register
                                 </Link>
                             </div>
-                            <Button 
-                            variant='primary'
+                            <Button
+                                variant='primary'
                                 type="submit"
                                 color='red'
                                 loading={isLoading}
-                                className="w-full bg-red-400  hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                className="w-full text-red-500  hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             >
-                               Login
+                                Login
                             </Button>
                         </form>
                     </div>

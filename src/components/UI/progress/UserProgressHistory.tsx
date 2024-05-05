@@ -22,7 +22,7 @@ const goalsAndTasksHistory = [
         name: 'Overdue Goals',
         count: 10,
         share: '20%',
-        color: 'bg-red-400',
+        color: 'text-red-500',
     },
 ];
 

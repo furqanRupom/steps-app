@@ -35,7 +35,7 @@ const values = [
 
 
 const Values: React.FunctionComponent<IValuesProps> = (props) => {
-    return <section className='pt-16 pb-8 bg-gradient-to-tr from-gray-900 to-gray-950 backdrop-blur-2xl '>
+    return <section className='pt-16 pb-8 bg-gradient-to-t from-gray-900 to-gray-950 backdrop-blur-2xl '>
 
         <section className='grid grid-cols-1 lg:grid-cols-[2fr,3fr] max-w-7xl mx-auto gap-10 items-center px-8 lg:px-0'>
 

@@ -11,7 +11,7 @@ const NotFoundPage: React.FunctionComponent<INotFoundPageProps> = (props) => {
             <h1 className="text-5xl font-bold text-red-400 py-5">Page not found </h1>
 
             <Link href="/">
-                <button className='px-7 py-3 rounded bg-red-400 text-white text-lg font-semibold'>Back to homepage</button>
+                <button className='px-7 py-3 rounded text-red-500 text-white text-lg font-semibold'>Back to homepage</button>
             </Link>
 
         </div>

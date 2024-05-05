@@ -35,7 +35,7 @@ const Expert: React.FC = () => {
         }
     ];
 
-  
+
 
     return (
         <section className="py-12">
@@ -45,7 +45,7 @@ const Expert: React.FC = () => {
                     Our application is designed to simplify your workflow and enhance your focus by eliminating distractions and clutter. Here are some key features that promote a more streamlined and productive experience:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {cards.map(({icon,title,description}, index) => (
+                    {cards.map(({ icon, title, description }, index) => (
                         <Card key={index} className=" rounded-lg shadow-md p-6">
                             <div className="flex items-center mb-4">
                                 <div className="flex-shrink-0 mr-4">
@@ -57,7 +57,7 @@ const Expert: React.FC = () => {
                         </Card>
                     ))}
                 </div>
-             
+
             </div>
         </section>
     );

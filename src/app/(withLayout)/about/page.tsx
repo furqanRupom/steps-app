@@ -19,10 +19,11 @@ const aboutPage: React.FunctionComponent<aboutPageProps> = (props) => {
     <Hero
       secTitle="Stay Organized and Achieve More"
       title="Discover Our Story"
-      description="At Steps, we're dedicated to helping you turn your goals into reality. Our platform provides powerful tools for tracking tasks, setting milestones, and staying focused on what matters most to you. Join us on your journey to success."
-      buttonFirstText="Get Started"
+      description="At Steps, we're dedicated to helping you turn your goals into reality. Join us on your journey to success."
+      buttonFirstText="Explore us"
       buttonSecondText="Learn More"
       imgUrl="https://i.ibb.co/kq6Js1J/teamwork-concept-landing-page-52683-21300-removebg-preview.png"
+      isButton={true}
     />
 
     <Values />

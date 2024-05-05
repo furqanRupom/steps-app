@@ -27,7 +27,7 @@ const FAQAccordion = () => {
     const [isOpen, setIsOpen] = useState(null);
 
     // Function to toggle accordion
-    const toggle = (idx:any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
+    const toggle = (idx: any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
 
     return (
         <section className='min-h-450px] lg:min-h-[400px] h-full pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
@@ -45,12 +45,12 @@ const FAQAccordion = () => {
                                 <div onClick={() => toggle(idx)} className="px-4 md:px-8 py-6 cursor-pointer">
                                     <div className="flex items-center justify-between">
                                         <h4 className="text-white">{data.question}</h4>
-                                        
+
                                         <span className="mr-4 text-red-400 hidden md:block">
                                             {isOpen === idx ? <BsChevronUp /> : <BsChevronDown />}
                                         </span>
                                     </div>
-                                   
+
                                 </div>
                                 <div className='w-full h-[0.1rem] bg-gray-900 '></div>
                                 {/* Answer */}

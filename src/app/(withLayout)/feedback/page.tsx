@@ -1,3 +1,4 @@
+import Hero from '@/components/Shared/Hero';
 import FeedbackForm from '@/components/feedback/FeedBackForm';
 import Feedbacks from '@/components/feedback/Feedbacks';
 import * as React from 'react';
@@ -11,7 +12,18 @@ export const metadata = {
 }
 
 const FeedbackPage: React.FunctionComponent<IFeedbackPageProps> = (props) => {
-  return <section className='min-h-screen w-full h-full bg-gradient-to-t from-black to-gray-900 backdrop-blur-2xl py-20'>
+  return <section className='min-h-screen w-full h-full backdrop-blur-2xl '>
+    <Hero
+      secTitle="Share Your Thoughts with Us"
+      title="We Value Your Feedback"
+      description="Your opinion matters! Help us improve by sharing your thoughts and experiences with our service."
+      buttonFirstText="Give Feedback"
+      buttonSecondText="Learn More"
+      imgUrl="https://i.ibb.co/64fS9qc/feedback.png"
+      size={400}
+      isButton={true}
+    />
+
     <FeedbackForm />
   </section>;
 };

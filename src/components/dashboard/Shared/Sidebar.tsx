@@ -37,7 +37,7 @@ const Sidebar: React.FunctionComponent<ISidebarProps> = () => {
                     }`}
                 onClick={() => setShowSidebar(false)}
             ></div>
-            
+
             <div
                 className={`flex absolute flex-row bg-slate-950 min-h-full lg:static w-full  lg:translate-x-0 transition-transform duration-300 ease-in-out  ${showSidebar ? '' : '-translate-x-full'
                     } lg:translate-x-0 transform h-full lg:h-auto`}

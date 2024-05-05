@@ -47,40 +47,40 @@ const DashboardHeader: React.FunctionComponent = () => {
                             leaveTo="transform opacity-0 scale-95"
                         >
 
-                        <div className="absolute top-full right-0 mt-2 bg-slate-950 border border-gray-800  shadow-lg rounded-lg overflow-hidden z-10 w-64">
-                            <div className="p-4">
-                                <div className="  space-x-4">
-                                    <div>
-                                        <p className="text-gray-300 font-semibold">{socialUser?.name}</p>
-                                        <p className="text-gray-500">{socialUser?.email}</p>
-                                        <div className='w-full h-[0.10rem] bg-gray-800 my-2 left-0 absolute'></div>
+                            <div className="absolute top-full right-0 mt-2 bg-slate-950 border border-gray-800  shadow-lg rounded-lg overflow-hidden z-10 w-64">
+                                <div className="p-4">
+                                    <div className="  space-x-4">
                                         <div>
-                                            <ul className='flex flex-col py-5 w-full'>
-                                                <Menu.Button>
-                                                    <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/">
-                                                        <span>Home</span>
-                                                    </Link>
-                                                </Menu.Button>
-                                                <Menu.Button>
-                                                    <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/settings">Settings</Link>
-                                                </Menu.Button>
-                                                <Menu.Button>
-                                                    <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/dashboard/profile">Profile</Link>
-                                                </Menu.Button>
-                                            </ul>
-                                            <div className='w-full h-[0.10rem] bg-gray-800  left-0 absolute'></div>
+                                            <p className="text-gray-300 font-semibold">{socialUser?.name}</p>
+                                            <p className="text-gray-500">{socialUser?.email}</p>
+                                            <div className='w-full h-[0.10rem] bg-gray-800 my-2 left-0 absolute'></div>
+                                            <div>
+                                                <ul className='flex flex-col py-5 w-full'>
+                                                    <Menu.Button>
+                                                        <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/">
+                                                            <span>Home</span>
+                                                        </Link>
+                                                    </Menu.Button>
+                                                    <Menu.Button>
+                                                        <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/settings">Settings</Link>
+                                                    </Menu.Button>
+                                                    <Menu.Button>
+                                                        <Link className='text-gray-300 inline-flex w-full duration-200 hover:bg-slate-800 px-2 w py-2 rounded-md' href="/dashboard/profile">Profile</Link>
+                                                    </Menu.Button>
+                                                </ul>
+                                                <div className='w-full h-[0.10rem] bg-gray-800  left-0 absolute'></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className='text-gray-300 duration-200  hover:bg-gray-800 px-2 mt-2 w-full py-2 rounded-md '>
-                                    <button onClick={() => signOut({
-                                        callbackUrl: "https://steps-app-rouge.vercel.app/login"
-                                    })} >
-                                        <span className='text-red-400'>Logout</span>
-                                    </button>
+                                    <div className='text-gray-300 duration-200  hover:bg-gray-800 px-2 mt-2 w-full py-2 rounded-md '>
+                                        <button onClick={() => signOut({
+                                            callbackUrl: "https://steps-app-rouge.vercel.app/login"
+                                        })} >
+                                            <span className='text-red-400'>Logout</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         </Transition>
                     )}
