@@ -1,5 +1,3 @@
-
-"use client"
 import * as React from 'react';
 import icon1 from "@/assets/images/icons/icon1.png"
 import icon2 from "@/assets/images/icons/icon2.png"
