@@ -14,7 +14,10 @@ const DashboardPage: React.FunctionComponent<IDashboardPageProps> = async (props
   return <section className='min-h-full h-full'>
 
     {
-      role === 'USER' ? <UserDashboard /> || <UserDashboardSkeleton /> : role === 'ADMIN' && <AdminDashboard />
+      !session && <UserDashboardSkeleton />
+    }
+    {
+      session && role === 'USER' ? <UserDashboard /> : session && role === 'ADMIN' && <AdminDashboard />
     }
   </section>;
 };

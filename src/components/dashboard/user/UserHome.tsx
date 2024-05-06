@@ -52,7 +52,7 @@ const UserDashboard: React.FunctionComponent<IAppProps> = async (props) => {
                             <span className="text-xs text-gray-500">70% completed</span>
                         </div>
                         <div className="bg-gray-800 h-6 rounded-full relative">
-                            <div className="text-red-500 h-full rounded-full w-[70%]"></div>
+                            <div className="bg-red-500 h-full rounded-full w-[70%]"></div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                                 <span className="text-xs text-gray-50">7/10</span>
                             </div>
