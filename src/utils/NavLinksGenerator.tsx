@@ -96,10 +96,6 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                     name: "Home"
                 },
                 {
-                    path: "/dashboard",
-                    name: "Dashboard"
-                },
-                {
                     path: "/about",
                     name: "About"
                 },
@@ -120,10 +116,6 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                     name: "Home"
                 },
                 {
-                    path: "/dashboard",
-                    name: "Dashboard"
-                },
-                {
                     path: "/about",
                     name: "About"
                 },
@@ -142,10 +134,6 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                 {
                     path: "/",
                     name: "Home"
-                },
-                {
-                    path: "/dashboard",
-                    name: "dashboard"
                 },
                 {
                     path: "/about",
@@ -178,10 +166,6 @@ export const NavlinksGenerator = (role: UserRole | "") => {
                 {
                     path: "/feedback",
                     name: "feedback"
-                },
-                {
-                    path: "/login",
-                    name: "Login"
                 },
             ]
             break;

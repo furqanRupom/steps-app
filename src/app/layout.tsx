@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora, Blaka_Hollow, Pacifico, Exo, Urbanist } from "next/font/google";
+import { Inter, Sora, Blaka_Hollow, Pacifico, Exo, Urbanist,Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
 import Footer from "@/components/Shared/Footer";
@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/provider/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 const urbanist = Urbanist({ subsets: ['latin'], display: "swap", weight: ['400'] })
+const poppins = Poppins({ subsets: ['latin'], display: "swap", weight: ['400','500','600','700'] })
 
 export const metadata: Metadata = {
   title: "Steps | home",
@@ -23,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <NextAuthProvider>
             {children}
