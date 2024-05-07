@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import Image from 'next/image';
@@ -8,6 +7,9 @@ import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { BiNotification } from 'react-icons/bi';
 import { FiMessageCircle } from 'react-icons/fi';
+import { RiNotification2Fill } from '@remixicon/react';
+import { RiChat1Fill } from '@remixicon/react';
+import { Icon } from '@tremor/react';
 
 const DashboardHeader: React.FunctionComponent = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -22,18 +24,18 @@ const DashboardHeader: React.FunctionComponent = () => {
         <header className="bg-slate-950 text-white flex items-center justify-end lg:justify-between px-12 py-5 shadow shadow-gray-800">
             <h1 className="text-xl font-bold hidden lg:block"><span className='text-red-400'>{socialUser?.role === 'USER' ? 'User' : socialUser?.role === 'ADMIN' && 'Admin'} </span>Home</h1>
             <div className="relative flex items-center space-x-5">
-                <div className='flex items-center space-x-3'>
+                <div className='flex items-center space-x-1'>
                     <button>
-                        <FiMessageCircle className='w-7 text-red-400 h-7 mt-2' />
+                        <Icon color='red' className='text-red-400' size='lg' icon={RiChat1Fill} />
                     </button>
                     <button>
-                        <BiNotification className='w-7 h-7 mt-2 text-red-400' />
+                        <Icon color='red' className='text-red-400' size='lg' icon={RiNotification2Fill} />
                     </button>
                 </div>
                 <Menu as="div" className="relative inline-block text-left">
                     <Menu.Button className="text-white focus:outline-none" onClick={togglePopup}>
                         <span>
-                            <Image className="relative object-cover ring ring-red-400 inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500 hover:ring-red-500 duration-500" width={20} height={20} src={socialUser?.image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
+                            <Image className="relative object-cover object-center ring ring-red-400 inline-flex items-center justify-center w-9 h-9 text-lg text-white rounded-full bg-emerald-500 hover:ring-red-500 duration-500" width={20} height={20} src={socialUser?.image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
                         </span>
                     </Menu.Button>
                     {isPopupOpen && (

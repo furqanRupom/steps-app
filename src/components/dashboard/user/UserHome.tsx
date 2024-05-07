@@ -5,6 +5,7 @@ import UserProgressHistory from '@/components/UI/progress/UserProgressHistory';
 import UserBarChart from '@/components/charts/UserBarChart';
 import { UserProgressChart } from '@/components/charts/UserProgressChart';
 import { getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import * as React from 'react';
 

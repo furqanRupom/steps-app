@@ -11,6 +11,7 @@ interface IDashboardPageProps {
 const DashboardPage: React.FunctionComponent<IDashboardPageProps> = async (props) => {
   const session = await getServerSession(options);
   const role = session?.user.role;
+ 
   return <section className='min-h-full h-full'>
 
     {
