@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora, Blaka_Hollow, Pacifico, Exo, Urbanist,Poppins } from "next/font/google";
+import { Inter, Sora, Blaka_Hollow, Pacifico, Exo, Urbanist,Poppins,Roboto,Baloo_Bhai_2,Barlow} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
 import Footer from "@/components/Shared/Footer";
@@ -10,7 +10,10 @@ import { ThemeProvider } from "@/provider/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 const urbanist = Urbanist({ subsets: ['latin'], display: "swap", weight: ['400'] })
+const balooBhai = Baloo_Bhai_2({ subsets: ['latin'], display: "swap", weight: ['400','500','600','700','800'] })
 const poppins = Poppins({ subsets: ['latin'], display: "swap", weight: ['400','500','600','700'] })
+const roboto = Roboto({ subsets: ['latin'], display: "swap", weight: ['400','500','700','900'] })
+const barlow = Barlow({ subsets: ['latin'], display: "swap", weight: ['400','500','700','900'] })
 
 export const metadata: Metadata = {
   title: "Steps | home",
@@ -24,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={barlow.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <NextAuthProvider>
             {children}

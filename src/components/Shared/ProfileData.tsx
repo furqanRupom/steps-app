@@ -33,7 +33,7 @@ const ProfileData: React.FunctionComponent<IProfileDataProps> = (props) => {
                 leaveTo="opacity-0 scale-95"
             >
                 <Menu.Items
-                    className="my-5 -ml-12 absolute  origin-top-left rounded-xl border border-white/5 bg-white/5 px-5 py-1  text-sm/6 text-white [--anchor-gap:var(--spacing-1)] focus:outline-none"
+                    className="my-5 -ml-24 mt-3 lg:-ml-10 absolute  origin-top-left rounded-xl border border-white/5 bg-white/5 px-5 py-1  text-sm/6 text-white [--anchor-gap:var(--spacing-1)] focus:outline-none"
                 >
                     <Menu.Item>
                         <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">

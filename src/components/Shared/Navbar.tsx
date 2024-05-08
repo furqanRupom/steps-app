@@ -50,7 +50,7 @@ const Navbar = () => {
 
 
 
-          <ul className={`flex flex-col lg:flex-row justify-end px-12 py-5 lg:py-0 lg:px-0 space-y-3 lg:space-y-0 lg:space-x-5 text-white  items-center text-lg ${isOpen ? '-translate-y-0 duration-500 lg:duration-0 lg:-translate-y-0 ' : '-translate-y-[1000px] duration-1000 lg:duration-0 lg:-translate-y-0'} bg-opacity-80  absolute bg-gradient-to-b from-slate-950 to-gray-900  top-14  lg:top-0 left-0 lg:relative w-full z-50 lg:bg-transparent   lg:bg-opacity-5 lg:bg-gradient-to-tr lg:from-transparent lg:to-transparent `} >
+          <ul className={`flex flex-col text-xl lg:flex-row justify-end px-12 py-5 lg:py-0 lg:px-0 space-y-3 lg:space-y-0 lg:space-x-5 text-white  items-center  ${isOpen ? '-translate-y-0 duration-500 lg:duration-0 lg:-translate-y-0 ' : '-translate-y-[1000px] duration-1000 lg:duration-0 lg:-translate-y-0'} bg-opacity-80  absolute bg-gradient-to-b from-slate-950 to-gray-900  top-14  lg:top-0 left-0 lg:relative w-full z-50 lg:bg-transparent   lg:bg-opacity-5 lg:bg-gradient-to-tr lg:from-transparent lg:to-transparent `} >
 
             {
               user && navbars?.map(({ path, name }) => <li key={path} className={`hover:text-red-400 duration-500 w-fit ${pathName == path ? 'text-red-400 border-b-2 border-red-400 ' : ''}`}>
@@ -64,19 +64,15 @@ const Navbar = () => {
             }
 
             {
-              !user && <div className='flex flex-col mt-auto py-12 lg:py-0 justify-center lg:flex-row items-center  lg:justify-end w-full space-y-5 lg:space-y-0 lg:space-x-5 '>
-              <li className='w-full lg:w-auto'>
+              !user && <div>
+              <li >
               <Link href="/login">
                     <button className='px-6 py-2 rounded-xl w-full text-lg font-semibold bg-transparent text-red-400 border-2 border-red-400  hover:border-red-500 hover:text-red-500 duration-500'>
                       Login
                     </button>
               </Link>
               </li>
-                <li  className='w-full lg:w-auto'>
-                  <button className='px-6 py-3 w-full rounded-xl text-lg font-semibold text-white  bg-red-500  hover:bg-red-600 duration-500'>
-                    Upadate Pro
-                  </button>
-                </li>
+                
               </div>
             }
             {

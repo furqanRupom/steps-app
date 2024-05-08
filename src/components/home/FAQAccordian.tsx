@@ -30,15 +30,15 @@ const FAQAccordion = () => {
     const toggle = (idx: any) => setIsOpen(prevIdx => (prevIdx === idx ? null : idx));
 
     return (
-        <section className='min-h-450px] lg:min-h-[400px] h-full pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
+        <section className=' h-full pt-32 pb-8 px-2  sm:px-4 md:px-8 lg:px-0 '>
 
             <div className=' max-w-7xl mx-auto px-2 '>
                 <h2 className="text-2xl text-white font-semibold mb-6 ">Frequently Asked Questions</h2>
                 <p className='text-gray-500 leading-relaxed pb-12'>
                     Have questions? We have got answers! Check out our frequently asked questions to learn more about using Steps.
                 </p>
-                <div className='relative min-h-[450px]  lg:min-h-96'>
-                    <div className="rounded-lg  mx-auto h-full  absolute">
+                <div className=''>
+                    <div className="rounded-lg  mx-auto h-full ">
                         {faqs.map((data, idx) => (
                             <div key={idx}>
                                 {/* FAQ Item */}
