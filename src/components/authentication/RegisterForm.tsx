@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { useRouter } from "next/navigation"
 import registerSchemaValidation from '@/lib/validation/auth/register.validation';
 import { Button } from '@tremor/react';
+import { signIn } from 'next-auth/react';
 
 
 interface IRegisterFormProps {
@@ -36,7 +37,15 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
             const res = await axios.post('/api/register', data);
             if (res.data.success) {
                 toast.success("user Registration successfully !", { id: toastId });
-                router.push("/login");
+                // logged in
+                const userLoggedIn = await signIn('credentials',{
+                    email:data.email,
+                    password:data.password,
+                    redirect:false
+                });
+                if(userLoggedIn){
+                    router.push('/dashboard');
+                }
                 setIsLoading(false)
             }
         } catch (error: any) {
