@@ -27,13 +27,10 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
     const { register, handleSubmit } = useForm<IRegisterData>()
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
     const router = useRouter();
-
-
     const handleRegisterSubmit = async (data: IRegisterData) => {
         const toastId = toast.loading("Registration on process...")
         setIsLoading(true);
         try {
-
             const res = await axios.post('/api/register', data);
             if (res.data.success) {
                 toast.success("user Registration successfully !", { id: toastId });
@@ -72,6 +69,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                                     <input
                                         type="text"
                                         id="name"
+                                        
                                         {...register("name")}
                                         className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                         placeholder="Enter your name"

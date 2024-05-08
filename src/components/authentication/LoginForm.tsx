@@ -28,6 +28,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
         const toastId = toast.loading("Login on process...");
         setIsLoading(true);
         try {
+            
             const res = await signIn("credentials", {
                 email: data.email,
                 password: data.password,
@@ -45,7 +46,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
             toast.error(error.message, { id: toastId })
             setIsLoading(false);
             console.log(error)
-            // router.push("/login")
+            router.push("/login")
 
         }
     }
@@ -74,6 +75,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 <input
                                     type="email"
                                     id="email"
+                                    required
                                     {...register("email")}
                                     className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                     placeholder="Enter your email"
@@ -89,6 +91,7 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                                 <input
                                     type="password"
                                     id="password"
+                                    required
                                     {...register("password")}
                                     className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-400 bg-gray-900 focus:outline-none focus:border-red-400"
                                     placeholder="Enter your password"
