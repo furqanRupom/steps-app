@@ -54,7 +54,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
                     <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg">
                         <h1 className="text-3xl text-center mb-8 text-white">Register for <span className='text-red-400'>Steps</span></h1>
                         <form onSubmit={handleSubmit(handleRegisterSubmit)}>
-                            <div className='grid grid-cols-2 gap-3 w-full'>
+                            <div className='grid  lg:grid-cols-2 gap-3 w-full'>
 
                                 <div className="mb-4">
                                     <label htmlFor="name" className="block text-gray-400 text-sm font-bold mb-2">

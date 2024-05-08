@@ -34,9 +34,6 @@ const Expert: React.FC = () => {
             description: 'Gain valuable insights into your progress and productivity, helping you make informed decisions.'
         }
     ];
-
-
-
     return (
         <section className="py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +54,6 @@ const Expert: React.FC = () => {
                         </Card>
                     ))}
                 </div>
-
             </div>
         </section>
     );
