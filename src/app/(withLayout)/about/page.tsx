@@ -17,13 +17,11 @@ const aboutPage: React.FunctionComponent<aboutPageProps> = (props) => {
   return <section className='bg-gradient-to-tr from-gray-900 to-gray-950 '>
 
     <Hero
-      secTitle="Stay Organized and Achieve More"
+      secTitle="Unlock Your Potential with Our Revolutionary Steps to Success"
       title="Discover Our Story"
       description="At Steps, we're dedicated to helping you turn your goals into reality. Join us on your journey to success."
-      buttonFirstText="Explore us"
-      buttonSecondText="Learn More"
       imgUrl="https://i.ibb.co/kq6Js1J/teamwork-concept-landing-page-52683-21300-removebg-preview.png"
-      isButton={true}
+      isButton={false}
     />
 
     <Values />

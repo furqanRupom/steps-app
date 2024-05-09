@@ -5,12 +5,12 @@ interface IFeedbackFormProps { }
 
 const FeedbackForm: React.FunctionComponent<IFeedbackFormProps> = (props) => {
     return (
-        <section className='bg-gradient-to-t from-gray-900 to-gray-950 py-20'>
+        <section className='bg-gradient-to-t from-gray-900 to-gray-950 pb-10'>
             <div className=' max-w-5xl mx-auto items-center justify-items-center gap-20'>
 
                 
                 <div className=' w-full mx-auto p-6'>
-                    <h1 className='text-3xl lg:text-5xl text-center mb-8 text-white'>Give your valuable <span className='text-red-400'>Feedback</span></h1>
+                   
                     <form>
                         <div className='grid grid-cols-1 lg:grid-cols-2  lg:gap-10'>
                             <div className='mb-4'>

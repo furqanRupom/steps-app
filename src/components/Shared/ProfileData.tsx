@@ -21,7 +21,7 @@ const ProfileData: React.FunctionComponent<IProfileDataProps> = (props) => {
         <Menu>
             <Menu.Button className="flex items-center space-x-3  rounded-3xl">
                 <FaBarsStaggered className='text-red-400 hidden lg:block w-7 h-7 rotate-180 ' />
-                <Image className="relative object-cover object-center ring ring-red-400 inline-flex items-center justify-center w-8 h-8 text-lg text-white rounded-full bg-emerald-500 hover:ring-red-500 duration-500" width={20} height={20} src={image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
+                <Image className="relative object-cover object-center ring ring-red-400 inline-flex items-center justify-center w-8 h-8 text-lg text-white rounded-full bg-emerald-500 hover:ring-red-500 duration-500 focus:ring-offset-2" width={20} height={20} src={image as string || "https://i.pinimg.com/280x280_RS/79/dd/11/79dd11a9452a92a1accceec38a45e16a.jpg"} alt='user image' />
                 
             </Menu.Button>
             <Transition

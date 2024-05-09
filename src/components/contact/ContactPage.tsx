@@ -7,13 +7,13 @@ interface IContactPageProps {
 
 const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
   return <>
-    <Hero description="Have questions, feedback, or suggestions? We had love to hear from you Feel free to reach out to us using the form below." secTitle="Get in Touch with Steps" title="Lets Chat" imgUrl='https://i.ibb.co/3CFH0jG/messenger-concept-illustration-114360-860-removebg-preview.png' isButton={true} buttonFirstText='Connect now' buttonSecondText='Subscribe' />
+    <Hero description="Have questions, feedback, or suggestions? We had love to hear from you Feel free to reach out to us using the form below." secTitle="Connect with Steps Your Pathway to Success Begins Here" title="Lets Chat" imgUrl='https://i.ibb.co/3CFH0jG/messenger-concept-illustration-114360-860-removebg-preview.png' isButton={false} />
 
     {/* form  */}
 
     <div className='bg-gradient-to-t from-gray-900 to-gray-950 backdrop-blur-2xl py-12'>
       <div className=" mx-auto  max-w-7xl    text-gray-400">
-       
+
 
         <div className="grid lg:grid-cols-3 items-center gap-4 p-2  rounded-lg ">
           <Card className=" rounded-lg p-6 max-lg:text-center">
@@ -35,7 +35,7 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
                     data-original="#000000"
                   />
                 </svg>
-                <a href="javascript:void(0)" className="text-white text-sm ml-3">
+                <a href="/" className="text-white text-sm ml-3">
                   <strong>info@example.com</strong>
                 </a>
               </li>
@@ -52,7 +52,7 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
                     data-original="#000000"
                   />
                 </svg>
-                <a href="javascript:void(0)" className="text-white text-sm ml-3">
+                <a href="/" className="text-white text-sm ml-3">
                   <strong>+158 996 888</strong>
                 </a>
               </li>
@@ -73,14 +73,14 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
                     data-original="#000000"
                   />
                 </svg>
-                <a href="javascript:void(0)" className="text-white text-sm ml-3">
+                <a href="/" className="text-white text-sm ml-3">
                   <strong>123 Street 256 House</strong>
                 </a>
               </li>
             </ul>
             <ul className="flex max-lg:justify-center mt-16 space-x-4">
               <li className="bg-gray-800 hover:bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                <a href="javascript:void(0)">
+                <a href="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18px"
@@ -96,7 +96,7 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
                 </a>
               </li>
               <li className="bg-gray-800 hover:bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                <a href="javascript:void(0)">
+                <a href="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18px"
@@ -112,7 +112,7 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
                 </a>
               </li>
               <li className="bg-gray-800 hover:bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                <a href="javascript:void(0)">
+                <a href="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18px"
@@ -290,9 +290,9 @@ const Contact: React.FunctionComponent<IContactPageProps> = (props) => {
         </div>
       </div>
     </div>
-  
 
-  
+
+
   </>;
 };
 

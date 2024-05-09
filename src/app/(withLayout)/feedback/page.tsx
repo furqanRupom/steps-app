@@ -21,7 +21,7 @@ const FeedbackPage: React.FunctionComponent<IFeedbackPageProps> = (props) => {
       buttonSecondText="Learn More"
       imgUrl="https://i.ibb.co/64fS9qc/feedback.png"
       size={400}
-      isButton={true}
+      isButton={false}
     />
 
     <FeedbackForm />
