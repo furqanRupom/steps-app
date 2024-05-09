@@ -89,7 +89,6 @@ const FeedbackForm: React.FunctionComponent<IFeedbackFormProps> = (props) => {
                             Submit
                         </button>
                     </form>
-
                 </div>
             </div>
         </section>

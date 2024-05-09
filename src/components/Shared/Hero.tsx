@@ -39,7 +39,7 @@ const Hero: React.FunctionComponent<IHeroProps> = (props) => {
 
 
                     <div className="mx-auto h-full ">
-                        <div className="container flex justify-center p-8 py-12 mx-auto sm:py-12 lg:pt-32 lg:py-1 w-full">
+                        <div className="container flex justify-center p-8 pt-24 py-12 mx-auto sm:py-12 lg:pt-32 lg:py-1 w-full">
                             <div className="flex flex-col justify-center p-6 max-w-5xl mx-auto text-center rounded-sm text-gray-50 z-30">
                                 <h1>
                                     <span className="text-red-400 text-base font-[cursive] tracking-widest">{props.title}</span>

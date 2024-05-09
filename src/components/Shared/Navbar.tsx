@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import { RiLoginBoxLine, RiLoginCircleLine } from '@remixicon/react';
 import ProfileData from './ProfileData';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import { Button } from '@tremor/react';
 
 
 const Navbar = () => {
@@ -67,9 +68,10 @@ const Navbar = () => {
               !user && <div>
               <li >
               <Link href="/login">
-                    <button className='px-6 py-2 rounded-xl w-full text-lg font-semibold bg-transparent text-red-400 border-2 border-red-400  hover:border-red-500 hover:text-red-500 duration-500'>
+                    <button className='px-5 py-1 rounded-xl w-full text-lg font-semibold bg-transparent text-red-400 border-2 border-red-400  hover:border-red-500 hover:text-red-500 duration-500'>
                       Login
                     </button>
+                 
               </Link>
               </li>
                 
