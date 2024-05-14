@@ -33,10 +33,8 @@ const UserProfile: React.FunctionComponent<IUserProfileProps> = async () => {
 
     return (
 
-
         <section className="p-8 ">
             {/* card */}
-
             <div className="grid grid-cols-1 xl:grid-cols-[5fr,2fr] gap-10">
                 <div>
                     <Card className="grid grid-cols-1 xl:grid-cols-[4fr,2fr] gap-10">
