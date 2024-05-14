@@ -64,7 +64,7 @@ const UserProfile: React.FunctionComponent<IUserProfileProps> = async () => {
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-tr from-gray-950 to-slate-900 rounded-2xl shadow p-5 md:p-4 flex text-center md:text-left items-center justify-center">
+                        <div className="bg-gradient-to-tr from-gray-950 to-slate-900 rounded-2xl shadow p-5 md:p-4 xl:p-2 flex text-center md:text-left items-center justify-center">
                             <div>
                                 <h3 className="text-xl font-bold tex-gray-400">Start where you left?</h3>
                                 <p className="py-2 text-gray-600">Completed your previous tasks.</p>
