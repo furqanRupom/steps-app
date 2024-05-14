@@ -54,6 +54,7 @@ const UserBarChart: React.FunctionComponent<IUserBarChartProps> = (props) => {
             valueFormatter={dataFormatter}
             yAxisWidth={48}
             showLegend={false}
+            showAnimation={true}
             onValueChange={(v) => console.log(v)}
         />
     

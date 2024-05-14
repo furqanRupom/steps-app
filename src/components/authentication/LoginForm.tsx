@@ -40,13 +40,17 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                 router.push("/dashboard");
                 setIsLoading(false);
             }
+            else{
+                toast.error("User not found !",{id:toastId});
+                setIsLoading(false);
+            }
 
 
         } catch (error: any) {
             toast.error(error.message, { id: toastId })
             setIsLoading(false);
-            console.log(error)
-            router.push("/login")
+            // console.log(error)
+            // router.push("/login")
 
         }
     }

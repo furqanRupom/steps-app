@@ -7,9 +7,9 @@ interface IProfilePageProps {
 }
 
 const ProfilePage: React.FunctionComponent<IProfilePageProps> = async (props) => {
-    const session = await getServerSession(options);
+  
   return <>
-    <UserProfile profilePhoto={session?.user.image as string}  name={session?.user.name as string}/>
+    <UserProfile />
   </>;
 };
 

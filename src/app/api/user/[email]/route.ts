@@ -8,25 +8,17 @@ type Params = {
 export const GET = async (req: NextRequest,context:{params:Params}) => {
     const email = context.params.email;
     try {
-        const findUser = await prisma.user.findUniqueOrThrow({
+        const findUser = await prisma.member.findUniqueOrThrow({
             where:{
                 email
-            },
-            include:{
-                member:true
             }
         });
 
-        const responseData = {
-            name:findUser.member?.name,
-            email:findUser.email,
-            role:findUser.role,
-            image:findUser.member?.profilePhoto
-        };
+     
        
 
 
-        return NextResponse.json({success:true,message:"user data feteched successfully !",data:responseData})
+        return NextResponse.json({success:true,message:"user data feteched successfully !",data:findUser})
     } catch (error) {
 
         return NextResponse.json({success:false,message:"failed to fetched user data",data:error})
