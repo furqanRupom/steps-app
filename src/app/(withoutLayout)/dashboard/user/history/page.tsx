@@ -1,10 +1,13 @@
 import * as React from 'react';
+import HistoryTable from './components/HistoryTable';
 
 interface IUserHistoryPageProps {
 }
 
 const UserHistoryPage: React.FunctionComponent<IUserHistoryPageProps> = (props) => {
-  return <>this is our user history page</>;
+  return <>
+  <HistoryTable />
+  </>;
 };
 
 export default UserHistoryPage;
