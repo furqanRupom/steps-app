@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Button } from '@tremor/react';
 
+
 interface ILoginFormProps {
 }
 
@@ -21,20 +22,18 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
 
     /* handle login form  */
     const { register, handleSubmit } = useForm<ILoginData>();
-    const [isLoading, setIsLoading] = React.useState<boolean>(false)
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
     const router = useRouter();
 
     const handleLoginSubmit = async (data: ILoginData) => {
         const toastId = toast.loading("Login on process...");
         setIsLoading(true);
         try {
-            
             const res = await signIn("credentials", {
                 email: data.email,
                 password: data.password,
                 redirect: false
-            })
-
+            });
             if (res?.ok) {
                 toast.success("user login successfully !", { id: toastId });
                 router.push("/dashboard");
@@ -44,14 +43,9 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
                 toast.error("User not found !",{id:toastId});
                 setIsLoading(false);
             }
-
-
         } catch (error: any) {
             toast.error(error.message, { id: toastId })
             setIsLoading(false);
-            // console.log(error)
-            // router.push("/login")
-
         }
     }
     return <>
@@ -60,14 +54,10 @@ const LoginForm: React.FunctionComponent<ILoginFormProps> = (props) => {
             <div className='max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-20'>
 
                 <Image loading="lazy" className='hidden lg:block' src="https://i.postimg.cc/vTwv4JGL/Illustration-1.png" width={400} height={400} alt='login image' />
-
-
                 <div>
                     <div className="max-w-lg mx-auto mt-10 p-6 bg-gray-500 bg-opacity-5 backdrop-blur-lg ">
                         <h1 className="text-3xl text-center mb-8 text-white">Welcome to <span className='text-red-400'>Steps</span></h1>
-
-
-
+                        
                         <form onSubmit={handleSubmit(handleLoginSubmit)}>
                             <div className="mb-4">
                                 <label

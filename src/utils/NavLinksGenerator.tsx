@@ -26,18 +26,18 @@ export const DashboardGenerator = (role: UserRole) => {
                     icon: <FiUser />
                 },
                 {
-                    path: "/goals",
+                    path: "/dashboard/user/goals",
                     name: "My Goals",
                     icon: <FiBarChart />
                 },
                 {
-                    path: "/tasks",
+                    path: "/dashboard/user/tasks",
                     name: "My Tasks",
                     icon: <FaTasks/>
                 },
                 {
-                    path: "/history",
-                    name: "My taks and goals History",
+                    path: "/dashboard/user/history",
+                    name: "My tasks and goals History",
                     icon: <FaHistory />
                 }
             ];

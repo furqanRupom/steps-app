@@ -50,6 +50,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
             router.push("/login");
             setIsLoading(false);
         }
+        
     };
 
     return <section>
