@@ -1,68 +1,99 @@
 generator client {
-    provider        = "prisma-client-js"
-    previewFeatures = ["jsonProtocol"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-    provider  = "postgresql"
-    url       = env("POSTGRES_PRISMA_URL")
-    directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-
 model User {
-    id String @id @default(uuid())
-    email String @unique 
-    password String 
-    role UserRole @default(USER)
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    member Member?
-    profile Profile?
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  member    Member?
+  profile   Profile?
+  goals     Goal[]
+  tasks     Task[]
 
-    @@map("users")
+  @@map("users")
 }
 
 model Profile {
-    id String @id @default(uuid())
-    name String
-    email String @unique
-    bio String?
-    profilePhoto String
-    userId String @unique
-    user User @relation(fields: [userId],references: [id])
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    @@map("profiles")
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  bio          String?
+  profilePhoto String
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("profiles")
 }
+
 model Member {
-    id String @id @default(uuid())
-    name String 
-    email String @unique
-    User User @relation(fields: [email],references: [email])
-    contactNumber String
-    profilePhoto String
-    address String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    
-    @@map("members")
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  user          User     @relation(fields: [email], references: [email])
+  contactNumber String
+  profilePhoto  String
+  address       String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("members")
 }
 
 model Feedback {
-    id       String @id @default(uuid())
-    name     String
-    email    String @unique
-    feedback String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  feedback  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    @@map("feedbacks")
+  @@map("feedbacks")
 }
 
+model Goal {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Task        Task[]
+
+  @@map("goals")
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  dueDate     DateTime?
+  isCompleted Boolean   @default(false)
+  userId      String
+  goalId      String?
+  user        User      @relation(fields: [userId], references: [id])
+  goal        Goal?     @relation(fields: [goalId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("tasks")
+}
 
 enum UserRole {
-    USER 
-    ADMIN
-    SUPER_ADMIN
+  USER
+  ADMIN
+  SUPER_ADMIN
 }
